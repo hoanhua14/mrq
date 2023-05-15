@@ -1,13 +1,16 @@
 # volumes:
 services:
-  fastapi:
+  mrq:
     build:
-      context: sample_service
-      dockerfile: Dockerfile.dev
+      context: mrq
+      dockerfile: ./Dockerfile.dev
     ports:
       - 8000:8000
     volumes:
-      - ./sample_service:/app
+      - ./mrq:/app
+    environment:
+      DATABASE_URL: postgresql://MRQ:test-databases@postgres/MRQ
+      WAIT_HOSTS: postgres:5432
 
   ghi:
     image: node:lts-bullseye
