@@ -6,7 +6,7 @@ steps = [
             id SERIAL PRIMARY KEY NOT NULL UNIQUE,
             first VARCHAR(250) NOT NULL,
             last VARCHAR(250) NOT NULL,
-            password VARCHAR(250) NOT NULL,
+            hashed_password VARCHAR(250) NOT NULL,
             email VARCHAR(250) NOT NULL UNIQUE,
             age SMALLINT NOT NULL,
             gender TEXT NOT NULL check(gender = 'Male' or gender = 'Female' or gender = 'None of the above' or gender = 'Do not want to share'),
