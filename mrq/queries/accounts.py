@@ -1,6 +1,9 @@
 from pydantic import BaseModel
 from queries.pool import pool
+from typing import Optional, Union, List
 
+class Error(BaseModel):
+    message: str
 
 class DuplicateAccountError(ValueError):
     pass
@@ -25,6 +28,7 @@ class AccountOut(BaseModel):
 
 class AccountOutWithPassword(AccountOut):
     hashed_password: str
+
 
 class AccountQueries:
     def record_to_account_out(self, record) -> AccountOutWithPassword:
@@ -121,3 +125,56 @@ class AccountQueries:
                     return self.record_to_account_out(record)
         except Exception:
             return {"message": "Could not return account!!"}
+
+    def get_all(self) -> Union[Error, List[AccountOutWithPassword]]:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    result = db.execute(
+                        """
+                        SELECT id
+                            , first
+                            , last
+                            , hashed_password
+                            , email
+                            , age
+                            , gender
+                            , race
+                        FROM users
+                        """
+                    )
+                    return [
+                        self.record_to_account_out(record)
+                        for record in result
+                    ]
+        except Exception as e:
+            print(e)
+            return {"message": "Could not get all vacations!!"}
+
+    def get_one(self, id: int) -> Optional[AccountOutWithPassword]:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    result = db.execute(
+                        """
+                        SELECT id
+                            , first
+                            , last
+                            , hashed_password
+                            , email
+                            , age
+                            , gender
+                            , race
+                        FROM users
+                        WHERE id = %s
+                        """,
+                        [id]
+                    )
+                    record = result.fetchone()
+                    print("record found", record)
+                    if record is None:
+                        return None
+                    return self.record_to_account_out(record)
+        except Exception as e:
+            print(e)
+            return {"message": "Could not get that account!!"}

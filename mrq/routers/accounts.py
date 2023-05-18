@@ -6,17 +6,19 @@ from fastapi import (
     APIRouter,
     Request,
 )
-
+from typing import Optional, Union, List
 from jwtdown_fastapi.authentication import Token
 from authenticator import authenticator
 
 from pydantic import BaseModel
 
 from queries.accounts import (
+    Error,
     AccountIn,
     AccountOut,
+    AccountOutWithPassword,
     AccountQueries,
-    DuplicateAccountError,
+    DuplicateAccountError
 )
 
 class AccountForm(BaseModel):
@@ -31,7 +33,7 @@ class HttpError(BaseModel):
 
 router = APIRouter()
 
-# allows people to create accounts
+# allows people to POST (create) accounts
 @router.post("/api/accounts", response_model=AccountToken | HttpError)
 async def create_account(
     info: AccountIn,
@@ -52,3 +54,23 @@ async def create_account(
     form = AccountForm(username=info.email, password=info.password)
     token = await authenticator.login(response, request, form, repo)
     return AccountToken(account=account, **token.dict())
+
+# GETs ALL accounts
+@router.get("/api/accounts", response_model=Union[List[AccountOut], Error])
+def get_all(
+    repo: AccountQueries = Depends(),
+):
+    return repo.get_all()
+
+# GET specific details of ONE account
+@router.get("/api/accounts/{id}", response_model=Optional[AccountOutWithPassword])
+def get_one_account(
+    id: int,
+    response: Response,
+    repo: AccountQueries = Depends(),
+) -> Optional[AccountOutWithPassword]:
+    account = repo.get_one(id)
+    if account is None:
+        response.status_code = 404
+    print (account)
+    return account
