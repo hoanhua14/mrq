@@ -1,6 +1,12 @@
 
 ## Week 14, Thursday 5/18
--
+- Today I finished 3 protected endpoints for a logged in user to create, delete and view all sleep records.
+- To do that, I created routers/sleep.py, queries/sleep.py, and registered it in main.py
+- Tested all endpoints working in http://localhost:8000/docs#
+- Ahhh I'm so stupid moment:
++ got an error saying unprintable cause i was using , for a key value pair in a dict
++ learned to pay attention to the cursor and where it ends to make correct indentations.
+
 
 
 ## Week 14, Wednesday 5/17

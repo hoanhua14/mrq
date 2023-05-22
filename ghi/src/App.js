@@ -3,6 +3,7 @@ import "./App.css";
 import MainPage from "./MainPage.js";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Nav from './Nav';
+import SleepForm from "./SleepForm";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="sleep" element={<SleepForm />} />
         </Routes>
       </div>
     </BrowserRouter>
