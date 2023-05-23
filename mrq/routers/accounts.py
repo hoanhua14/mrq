@@ -33,7 +33,20 @@ class HttpError(BaseModel):
 
 router = APIRouter()
 
-# allows people to POST (create) accounts
+# Retrieves (GET) token and account data (must be logged in)
+# checks for the cookie in the request, returns that dictionary
+@router.get("/token", response_model=AccountToken | None)
+async def get_token(
+    request: Request,
+    account: AccountOut = Depends(authenticator.try_get_current_account_data),
+) -> AccountToken | None:
+    if authenticator.cookie_name in request.cookies:
+        return {
+            "access_token": request.cookies[authenticator.cookie_name],
+            "token_type": "Bearer",
+            "account": account
+        }
+
 @router.post("/api/accounts", response_model=AccountToken | HttpError)
 async def create_account(
     info: AccountIn,
@@ -55,14 +68,12 @@ async def create_account(
     token = await authenticator.login(response, request, form, repo)
     return AccountToken(account=account, **token.dict())
 
-# GETs ALL accounts
 @router.get("/api/accounts", response_model=Union[List[AccountOut], Error])
 def get_all(
     repo: AccountQueries = Depends(),
 ):
     return repo.get_all()
 
-# GET specific details of ONE account
 @router.get("/api/accounts/{id}", response_model=Optional[AccountOutWithPassword])
 def get_one_account(
     id: int,
@@ -74,3 +85,8 @@ def get_one_account(
         response.status_code = 404
     print (account)
     return account
+
+# # create a DELETE for an account
+# @router.delete("/api/accounts/{id}", response_model=Optional[AccountOutWithPassword])
+# def delete_account(
+# )
