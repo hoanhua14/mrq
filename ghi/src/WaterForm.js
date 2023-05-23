@@ -21,15 +21,15 @@ function WaterForm() {
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization' : 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIzNTU5MDQzYi1jYzUyLTRiNWMtYjVmMS1hYzFlZjU5N2JhYWUiLCJleHAiOjE2ODQ3OTkxNzQsInN1YiI6InRlc3RhQGdtYWlsLmNvbSIsImFjY291bnQiOnsiaWQiOjUsImZpcnN0IjoiTmlra2ktYSIsImxhc3QiOiJMYXN0bmFtZS1hIiwiZW1haWwiOiJ0ZXN0YUBnbWFpbC5jb20iLCJhZ2UiOjE5LCJnZW5kZXIiOiJNYWxlIiwicmFjZSI6IldoaXRlIn19.brespduKAgfntffo-6q4GUvfcijs_UCvYa1XdeoAO-g',
+                'Authorization' : 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIzMGUwYTViMi00NjM1LTRmYmMtOTdkMi1iYjQzOTY1NDVhNzkiLCJleHAiOjE2ODQ4NzQ0OTgsInN1YiI6ImhvYW5AaHVhLmNvbSIsImFjY291bnQiOnsiaWQiOjEsImZpcnN0IjoiaG9hbiIsImxhc3QiOiJodWEiLCJlbWFpbCI6ImhvYW5AaHVhLmNvbSIsImFnZSI6MjAsImdlbmRlciI6IkZlbWFsZSIsInJhY2UiOiJBc2lhbiJ9fQ.jkZZ254WoRAL19umx5teUS6WfVRRLCVCiVv9xKAe5kQ',
             },
         };
 
         const response = await fetch(waterURL, fetchConfig);
         if (response.ok) {
-            setOunces('')
+            setOunces('');
             setDate('');
-            navigation('/')
+            navigation('/');
         }
     }
 

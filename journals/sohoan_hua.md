@@ -1,4 +1,8 @@
 
+## Week 15, Monday 5/22
+- Today I finished the form for my category for a user to input the data which is hooked to states in the front end to check whether or not an instance is actually created in the database.
+- I also read some docs to apply redux to this project.
+- Did some styling using tailwind in SleepForm.js
 ## Week 14, Thursday 5/18
 - Today I finished 3 protected endpoints for a logged in user to create, delete and view all sleep records.
 - To do that, I created routers/sleep.py, queries/sleep.py, and registered it in main.py

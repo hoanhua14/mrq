@@ -1,10 +1,11 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
+import StyledButton from "./ReactComponents/button";
 
 function SleepForm() {
     const [date, setDate] = useState('');
     const [hours, setHours] = useState('');
-    const [sleepQuality, setQuality] = useState('');
+    const [quality, setQuality] = useState('');
     const navigate = useNavigate();
 
     const handleDateChange = (event) => {
@@ -27,22 +28,20 @@ function SleepForm() {
         const data = {};
         data.date = date;
         data.hours = hours;
-        data.sleepQuality = sleepQuality;
+        data.quality = quality;
 
-        const sleepUrl = "http://localhost:8000/sleep/"
+        const sleepUrl = 'http://localhost:8000/api/sleep'
         const fetchConfig = {
             method: "post",
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization' : 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIzODJmYzQ2MS1kNDNkLTQ2OTMtODI2ZS1kNzY1NjU4YTMzNGUiLCJleHAiOjE2ODQ4MDI5NjUsInN1YiI6ImhvYW5AaG9hbi5jb20iLCJhY2NvdW50Ijp7ImlkIjoxLCJmaXJzdCI6ImhvYW4iLCJsYXN0IjoiaHVhIiwiZW1haWwiOiJob2FuQGhvYW4uY29tIiwiYWdlIjoxMCwiZ2VuZGVyIjoiRmVtYWxlIiwicmFjZSI6IkFzaWFuIn19.THToWgTIrtSGB4GSSnO05e6Uq0VeFHjxdvs17b9GxD0',
+                'Authorization' : 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2MjFmMTlhMC04ZTZhLTRmMmYtOTAyMi03YzJlNjhhMTQ0M2UiLCJleHAiOjE2ODQ4ODYxMjAsInN1YiI6ImhvYW5AaHVhLmNvbSIsImFjY291bnQiOnsiaWQiOjEsImZpcnN0IjoiaG9hbiIsImxhc3QiOiJodWEiLCJlbWFpbCI6ImhvYW5AaHVhLmNvbSIsImFnZSI6MjAsImdlbmRlciI6IkZlbWFsZSIsInJhY2UiOiJBc2lhbiJ9fQ.-3y6WjXOfz5VmDmwMbjLtjjg5zKmLi-WSPWs2mJRSIg',
             },
         };
 
-        const response = await fetch(sleepUrl, fetchConfig)
+        const response = await fetch(sleepUrl, fetchConfig);
         if (response.ok) {
-            const newSleep = await response.json();
-            console.log(newSleep);
             setDate('');
             setHours('');
             setQuality('');
@@ -72,7 +71,7 @@ function SleepForm() {
                   <label htmlFor="hours">Hours</label>
                 </div>
                 <div className="mb-3">
-                  <select onChange={handleQualityChange} required name="sleepQuality" id="sleepQuality" className="form-select" value={sleepQuality}>
+                  <select onChange={handleQualityChange} required name="quality" id="quality" className="form-select" value={quality}>
                     <option value="">Rate your sleep</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -81,7 +80,7 @@ function SleepForm() {
                         <option value="5">5</option>
                   </select>
                 </div>
-                <button className="btn btn-success">Log</button>
+                <StyledButton text="Submit" type="submit">Submit</StyledButton>
               </form>
             </div>
           </div>

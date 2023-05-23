@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/water/new" element={<WaterForm />}/>
-          <Route path="sleep" element={<SleepForm />} />
+          <Route path="/sleep/new" element={<SleepForm />}/>
         </Routes>
       </div>
     </BrowserRouter>
