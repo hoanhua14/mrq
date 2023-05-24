@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
-import StyledButton from "./ReactComponents/button";
+import StyledButton from "../ReactComponents/button";
 
 function SleepForm() {
     const [date, setDate] = useState('');
@@ -36,7 +36,7 @@ function SleepForm() {
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization' : 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2MjFmMTlhMC04ZTZhLTRmMmYtOTAyMi03YzJlNjhhMTQ0M2UiLCJleHAiOjE2ODQ4ODYxMjAsInN1YiI6ImhvYW5AaHVhLmNvbSIsImFjY291bnQiOnsiaWQiOjEsImZpcnN0IjoiaG9hbiIsImxhc3QiOiJodWEiLCJlbWFpbCI6ImhvYW5AaHVhLmNvbSIsImFnZSI6MjAsImdlbmRlciI6IkZlbWFsZSIsInJhY2UiOiJBc2lhbiJ9fQ.-3y6WjXOfz5VmDmwMbjLtjjg5zKmLi-WSPWs2mJRSIg',
+                'Authorization' : 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI5NmNhZjhlYy1jMTk1LTQ2MDEtODM3NS0wY2U3MDkxNmY4ZDIiLCJleHAiOjE2ODQ5NzI2NTYsInN1YiI6ImhvYW5AaHVhLmNvbSIsImFjY291bnQiOnsiaWQiOjEsImZpcnN0IjoiaG9hbiIsImxhc3QiOiJodWEiLCJlbWFpbCI6ImhvYW5AaHVhLmNvbSIsImFnZSI6MzAsImdlbmRlciI6IkZlbWFsZSIsInJhY2UiOiJBc2lhbiJ9fQ.7ctivj9vcgaU_GF4_KIF6eKnnU39boInV5yH-ZAqzi4',
             },
         };
 
