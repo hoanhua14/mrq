@@ -1,3 +1,6 @@
+## Week 15, /tuesday 5/23
+- Today I finished and styled the nav bar .
+- Styled my category page
 
 ## Week 15, Monday 5/22
 - Today I finished the form for my category for a user to input the data which is hooked to states in the front end to check whether or not an instance is actually created in the database.
