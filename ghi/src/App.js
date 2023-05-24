@@ -8,6 +8,8 @@ import { AuthProvider } from "@galvanize-inc/jwtdown-for-react";
 import Nav from './Nav';
 import WaterForm from "./WaterForm";
 
+import ExerciseForm from "./ExerciseForm";
+import ExerciseList from "./ListExercise";
 
 function App() {
   return (
@@ -20,7 +22,9 @@ function App() {
             <Route path="/water/new" element={<WaterForm />}/>
             <Route path="/login" element={<LoginForm />} />
             <Route path="/signup" element={<SignupForm />} />
-          </Routes>
+            <Route path="/exercise/new" element={<ExerciseForm />}/>
+          <Route path="/exercise" element={<ExerciseList/>}/>
+        </Routes>
         </div>
         </AuthProvider>
     </BrowserRouter>
