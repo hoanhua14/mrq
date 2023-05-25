@@ -1,4 +1,3 @@
-// import { useEffect, useState } from "react";
 import "./App.css";
 import MainPage from "./MainPage.js";
 import LoginForm from "./LoginForm";
@@ -31,10 +30,8 @@ function App() {
             <Route path="/signup" element={<SignupForm />} />
             <Route path="/exercise/new" element={<ExerciseForm />}/>
             <Route path="/exercise" element={<ExerciseList/>}/>
-            <Routes path="/sleep">
-              <Route path="/new" element={<SleepForm />}/>
-              <Route path="/all" element={<SleepList />}/>
-            </Routes>
+            <Route path="/sleep/new" element={<SleepForm />}/>
+            <Route path="/sleep/all" element={<SleepList />}/>
           </Routes>
         </div>
         </AuthProvider>
