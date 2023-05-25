@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import useToken from '@galvanize-inc/jwtdown-for-react';
 
 function WaterForm() {
     const navigation=useNavigate();
+    const { token } = useToken();
     const [ounces, setOunces] = useState('')
     const [date, setDate] = useState('');
 
@@ -14,14 +16,13 @@ function WaterForm() {
         data.ounces = ounces;
         data.date = date;
 
-        const waterURL = 'http://localhost:8000/api/water'
-        // console.log(document.cookie)
+        const waterURL = `${process.env.REACT_APP_MRQ_SERVICE}/api/water`
         const fetchConfig = {
             method: "post",
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization' : 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIzNTU5MDQzYi1jYzUyLTRiNWMtYjVmMS1hYzFlZjU5N2JhYWUiLCJleHAiOjE2ODQ3OTkxNzQsInN1YiI6InRlc3RhQGdtYWlsLmNvbSIsImFjY291bnQiOnsiaWQiOjUsImZpcnN0IjoiTmlra2ktYSIsImxhc3QiOiJMYXN0bmFtZS1hIiwiZW1haWwiOiJ0ZXN0YUBnbWFpbC5jb20iLCJhZ2UiOjE5LCJnZW5kZXIiOiJNYWxlIiwicmFjZSI6IldoaXRlIn19.brespduKAgfntffo-6q4GUvfcijs_UCvYa1XdeoAO-g',
+                'Authorization' : `Bearer ${token}`,
             },
         };
 
@@ -29,7 +30,7 @@ function WaterForm() {
         if (response.ok) {
             setOunces('')
             setDate('');
-            navigation('/')
+            navigation('/dashboard')
         }
     }
 
