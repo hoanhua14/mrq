@@ -39,11 +39,13 @@ const Nav = () => {
                 >
                 Resources
                 </NavLink>
+                <NavLink className="navbar-brand" to="/login">Login</NavLink>
+                <NavLink className="navbar-brand" to="/signup">Sign Up</NavLink>
             </div>
         </div>
       </div>
     </nav>
-  );
+  )
 };
 
 export default Nav;

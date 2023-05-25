@@ -20,6 +20,7 @@ async def create_exercise(
     user_id = account_data["id"]
     return repo.create(user_id, exercise)
 
+
 @router.get("/api/exercise", response_model=Union[List[ExerciseOut], Error])
 def get_all_exercise(
     repo: ExerciseRepository = Depends(),
