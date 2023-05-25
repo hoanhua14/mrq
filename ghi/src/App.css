@@ -26,3 +26,8 @@
   color: white;
   margin-top: 20px; /* Add margin to separate the form from the top */
 }
+
+.radiant-background {
+  background: linear-gradient(to bottom right, #CCCCCC, #333333);
+  /* Replace the color values above with your desired colors */
+}
