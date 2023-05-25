@@ -1,4 +1,9 @@
-## Week 15, /tuesday 5/23
+
+## Week 15, wednesday 5/24
+- Pulled and merged front end auth
+- worked on fixing errors after merging
+
+## Week 15, tuesday 5/23
 - Today I finished and styled the nav bar .
 - Styled my category page
 
