@@ -16,7 +16,7 @@ function App() {
     <BrowserRouter>
       <AuthProvider baseUrl={process.env.REACT_APP_MRQ_SERVICE}>
         <Nav />
-        <div className="container">
+        <div className="container mx-auto">
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="/water/new" element={<WaterForm />}/>
