@@ -1,6 +1,24 @@
 
+## Week 15, wednesday 5/24
+- Pulled and merged front end auth
+- worked on fixing errors after merging
+
+## Week 15, tuesday 5/23
+- Today I finished and styled the nav bar .
+- Styled my category page
+
+## Week 15, Monday 5/22
+- Today I finished the form for my category for a user to input the data which is hooked to states in the front end to check whether or not an instance is actually created in the database.
+- I also read some docs to apply redux to this project.
+- Did some styling using tailwind in SleepForm.js
 ## Week 14, Thursday 5/18
--
+- Today I finished 3 protected endpoints for a logged in user to create, delete and view all sleep records.
+- To do that, I created routers/sleep.py, queries/sleep.py, and registered it in main.py
+- Tested all endpoints working in http://localhost:8000/docs#
+- Ahhh I'm so stupid moment:
++ got an error saying unprintable cause i was using , for a key value pair in a dict
++ learned to pay attention to the cursor and where it ends to make correct indentations.
+
 
 
 ## Week 14, Wednesday 5/17
