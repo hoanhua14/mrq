@@ -1,8 +1,18 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import useToken from "@galvanize-inc/jwtdown-for-react";
+import useUser from "./useUser";
 
 const Nav = () => {
+    const { token, logout } = useToken();
+    const { user } = useUser(token);
+
+    const handleLogout = () => {
+        logout();
+        window.location.reload();
+    };
+
   return (
     <nav className="py-4"
     style={{ backgroundColor: '#c5f2e6' }}>
@@ -34,8 +44,17 @@ const Nav = () => {
                 >
                 Resources
                 </NavLink>
-                <NavLink className="navbar-brand" to="/login">Login</NavLink>
-                <NavLink className="navbar-brand" to="/signup">Sign Up</NavLink>
+                {user ? (
+                    <>
+                        Good to see you, {user.first}
+                        <button onClick={handleLogout}>Sign out</button>
+                    </>
+                ) : (
+                    <>
+                        <NavLink to="/login">Login</NavLink>
+                        <NavLink to="/signup">Sign up</NavLink>
+                    </>
+                )}
             </div>
         </div>
       </div>
