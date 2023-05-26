@@ -113,7 +113,7 @@ function SleepForm() {
                 </li>
               </ol>
             </nav>
-              <div className="offset-3 col-6 " style={{ backgroundColor: '#47F2B8'}}>
+              <div className="offset-3 col-6 " style={{ backgroundColor: '#e7f9f4'}}>
                 <div className="shadow p-4 mt-4">
                   <h1 className="font-bold" >Log Sleep</h1>
                   <form onSubmit={handleSubmit} id="create-sleep-form">

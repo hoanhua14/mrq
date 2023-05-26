@@ -4,7 +4,8 @@ import { NavLink } from 'react-router-dom';
 
 const Nav = () => {
   return (
-    <nav className="bg-yellow-300 py-4">
+    <nav className="py-4"
+    style={{ backgroundColor: '#c5f2e6' }}>
       <div className="max-w-6xl mx-auto flex justify-between items-center px-4">
         <div className="text-black font-bold text-lg">Logo</div>
         <div className="flex justify-center flex-grow">
