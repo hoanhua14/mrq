@@ -12,3 +12,22 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  padding-top: 20px; /* Add padding to create space at the top */
+}
+
+.col-md-6 {
+  background-color: black;
+  color: white;
+  margin-top: 20px; /* Add margin to separate the form from the top */
+}
+
+.radiant-background {
+  background: linear-gradient(to bottom right, #CCCCCC, #61c7c4);
+  /* Replace the color values above with your desired colors */
+}
