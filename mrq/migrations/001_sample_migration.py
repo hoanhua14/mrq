@@ -10,7 +10,7 @@ steps = [
             email VARCHAR(250) NOT NULL UNIQUE,
             age SMALLINT NOT NULL,
             gender TEXT NOT NULL check(gender = 'Male' or gender = 'Female' or gender = 'None of the above' or gender = 'Do not want to share'),
-            race TEXT NOT NULL check(race = 'Asian' or race = 'White' or race = 'Black or African American' or race = 'Hispanic' or race='other' or race = 'American Indian or Alaskan Native' or race = 'Native Hawaiian or other Pacific Islander' or race = 'Other')
+            race TEXT NOT NULL check(race = 'Asian' or race = 'White' or race = 'Black or African American' or race = 'Hispanic' or race = 'American Indian or Alaskan Native' or race = 'Native Hawaiian or other Pacific Islander' or race = 'Other')
 
         );
         """,

@@ -33,8 +33,6 @@ class HttpError(BaseModel):
 
 router = APIRouter()
 
-# Retrieves (GET) token and account data (must be logged in)
-# checks for the cookie in the request, returns that dictionary
 @router.get("/token", response_model=AccountToken | None)
 async def get_token(
     request: Request,
@@ -86,7 +84,13 @@ def get_one_account(
     print (account)
     return account
 
-# # create a DELETE for an account
-# @router.delete("/api/accounts/{id}", response_model=Optional[AccountOutWithPassword])
+# @router.delete("/api/accounts/{id}", response_model=bool)
 # def delete_account(
-# )
+#     id: int,
+#     repo: AccountQueries = Depends(),
+#     account_data: dict = Depends(authenticator.get_current_account_data)
+# ) -> bool:
+#     if account_data[id] == id:
+#         return repo.delete(id)
+#     else:
+#         return False

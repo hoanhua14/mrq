@@ -43,13 +43,23 @@ For frontend auth, my team and I read through the authentication-playground repo
 ## May 23, 2023 (T)
 
 What I accomplished today:
+* We fixed the errors in the LoginForm.js
+* Able to get a cookie upon logging in on the react frontend
 
-
-## May 24, 2023 (W)
-
-What I accomplished today:
+Turns out I forgot to add "if account" in the get token function in my routers.py, which was throwing CORS errors in our react app.
 
 
 ## May 25, 2023 (Tr)
 
 What I accomplished today:
+* Completed the sign up form, users are able to sign up on the front end and get a token
+* Added a logout button functionality and it appears when you login
+    * the login and sign up buttons disappear upon logging in
+
+With help from the SEIRs and Nicole, in the handleSignUp, we added a username:email while still having a email: email pair. We added that just so that the info was available to grab and it would not affect our database.
+For the logout functionality, I created a useUser.py form that James demonstrated earlier in the week and implemented that in our Nav.js. The idea of putting that there makes it so the login and sign up buttons disappear upon logging in or signing up. The only problem I'm having at the moment is when I click logout, the account in fact does logout, but the Navbar doesn't update so that the login and signup buttons reappear.
+
+## May 26, 2023 (F)
+
+What I accomplished today:
+*
