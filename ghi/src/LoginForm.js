@@ -17,10 +17,10 @@ const LoginForm = () => {
     };
 
     return (
-    <div className="bg-gray-200 py-8">
+    <div className="bg-yellow-200 py-8">
         <div className="max-w-md mx-auto">
         <div className="bg-white p-8 rounded shadow">
-            <h1 className="text-2xl font-bold mb-4">Login</h1>
+            <h1 className="text-2xl font-bold mb-4">Login to start crushing your goals!</h1>
             <form onSubmit={handleLogin}>
             <div className="mb-4">
                 <input
