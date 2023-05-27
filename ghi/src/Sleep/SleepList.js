@@ -48,7 +48,8 @@ export default function SleepList() {
     return (
         <>
             <div className="font-weight-bold">All Sleeps</div>
-
+            <div></div>
+            <div>
                 <table >
                     <thead>
                         <tr>
@@ -75,7 +76,7 @@ export default function SleepList() {
 
                     </tbody>
                 </table>
-
+            </div>
         </>
     )
 

@@ -14,11 +14,12 @@
 }
 
 .container {
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: flex-start;
   height: 100vh;
-  /* padding-top: 20px; Add padding to create space at the top */
+  margin: 0; */
+
 }
 
 .col-md-6 {
@@ -29,5 +30,6 @@
 
 .radiant-background {
   background: linear-gradient(to bottom, #CCCCCC, #61c7c4);
+  width:100vw;
   /* Replace the color values above with your desired colors */
 }
