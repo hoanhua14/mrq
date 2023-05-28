@@ -51,9 +51,9 @@ const Nav = () => {
                     </>
                 ) : (
                     <>
-                        <a
+                        <NavLink
                           className="group relative inline-block focus:outline-none focus:ring"
-                          href="/login"
+                          to="/login"
                         >
                           <span
                             className="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-yellow-300 transition-transform group-hover:translate-y-0 group-hover:translate-x-0"
@@ -64,10 +64,10 @@ const Nav = () => {
                           >
                             Log In
                           </span>
-                        </a>
-                        <a
+                        </NavLink>
+                        <NavLink
                           className="group relative inline-block focus:outline-none focus:ring"
-                          href="/signup"
+                          to="/signup"
                         >
                           <span
                             className="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-yellow-300 transition-transform group-hover:translate-y-0 group-hover:translate-x-0"
@@ -78,7 +78,7 @@ const Nav = () => {
                           >
                             Sign Up
                           </span>
-                        </a>
+                        </NavLink>
                     </>
                 )}
             </div>

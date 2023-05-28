@@ -39,7 +39,7 @@ import { Link } from 'react-router-dom';
 // export default MainPage;
 export default function MainPage() {
   return (
-    <>
+    <div className="'2xl':container  mx-auto">
       <section
   className="relative bg-[url(https://i.imgur.com/VK0GCzK.png)]  bg-cover bg-center bg-no-repeat flex-grow"
 >
@@ -75,6 +75,6 @@ export default function MainPage() {
     </div>
   </div>
 </section>
-    </>
+    </div>
   )
 };
