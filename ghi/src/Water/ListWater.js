@@ -64,9 +64,6 @@ function WaterList() {
                 <th scope="col" className="px-6 py-3">
                     Fluid Oz.
                 </th>
-                {/* <th scope="col" className="px-6 py-3">
-                    Category
-                </th> */}
                 <th scope="col" className="px-6 py-3">
                     Delete
                 </th>
@@ -78,7 +75,6 @@ function WaterList() {
                 <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700" key={water.id}>
                     <td className="px-6 py-4">{water.date}</td>
                     <td className="px-6 py-4">{water.ounces}</td>
-                    {/* <td className="px-6 py-4">{exercise.category}</td> */}
                     <td className="px-6 py-4">
                         <button onClick={deleteWater} id={water.id}>
                             Delete

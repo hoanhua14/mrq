@@ -31,3 +31,8 @@
   background: linear-gradient(to bottom right, #CCCCCC, #61c7c4);
   /* Replace the color values above with your desired colors */
 }
+
+.resources-page:hover {
+ background-color: rgb(200, 185, 241);
+ border-color: rgb(2, 0, 7);
+}
