@@ -7,10 +7,11 @@ import { AuthProvider } from "@galvanize-inc/jwtdown-for-react";
 import Nav from './Nav';
 import AboutUs from "./InfoPages/AboutUs";
 import Features from "./InfoPages/Features";
-import Resources from "./InfoPages/Resources";
+// import Resources from "./InfoPages/Resources";
 import WaterForm from "./Water/WaterForm";
 import WaterList from "./Water/ListWater";
 import Dashboard from "./Dashboard";
+import Resources from "./InfoPages/Resources";
 import SleepForm from "./Sleep/SleepForm";
 import SleepList from "./Sleep/SleepList";
 import ExerciseForm from "./ExerciseForm";
@@ -34,6 +35,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />}/>
             <Route path="/login" element={<LoginForm />} />
             <Route path="/signup" element={<SignupForm />} />
+            <Route path="/resources" element={<Resources />} />
             <Route path="/exercise/new" element={<ExerciseForm />}/>
             <Route path="/exercise" element={<ExerciseList/>}/>
             <Route path="/sleep/new" element={<SleepForm />}/>

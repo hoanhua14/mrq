@@ -3,6 +3,33 @@ A list of features/issues that you worked on and who you worked with, if applica
 A reflection on any design conversations that you had
 At least one ah-ha! moment that you had during your coding, however small
 
+## May 25, 2023
+Today, I worked on:
+
+* A populating the data for the dashboard including a sum of
+all of today's water entries, all of today's exercise entries,
+and all of yesterday's sleep entries to give an overview on
+the day.
+
+I created a new router called dashboard.py with the goal of
+getting the three numbers needed for the dashboard. In order
+to make this happen, I created a file called
+dashboard_by_date_handler.py. This file is a middleman between
+the dashboard and the exercise, sleep, and water
+queries. The handler can get the needed data from all three
+tables, filter the data, and return it the needed data with just one API call.
+
+I decided that filtering all of the entries and then
+finding a sum all in the frontend is not the best
+long term solution. Once there is a lot of data, this will slow
+down our page. Instead, I needed another backend
+point that pulls from the exercise table, sleep table, and
+water table, adds everything up, and then just returns
+the three numbers needed to populate the dashboard. I
+also needed a handler with a constructor. I looked backed
+on my python pratice problems from module 1 to assist
+me with creating a constructor. 
+
 ## May 24, 2023
 Today, I worked on:
 

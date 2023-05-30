@@ -33,3 +33,8 @@
   width:100vw;
   /* Replace the color values above with your desired colors */
 }
+
+.resources-page:hover {
+ background-color: rgb(200, 185, 241);
+ border-color: rgb(2, 0, 7);
+}
