@@ -69,6 +69,27 @@ class SleepRepository:
         except Exception as e:
             return {"message": str(e)}
 
+    def get_all_by_date(self, user_id: int, date) -> Union[List[SleepOut], Error]:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    result = db.execute(
+                        """
+                        SELECT id, user_id, hours, date, quality
+                        FROM sleep
+                        WHERE user_id = %s AND date = %s
+                        """,
+                        [user_id, date]
+                    )
+                    print(user_id)
+                    return [
+                        self.record_to_sleep_out(record)
+                        for record in result
+                    ]
+        except Exception as e:
+            return {"message": str(e)}
+
+
     def delete_sleep(self, id: int, user_id: int) -> bool:
         try:
             with pool.connection() as conn:

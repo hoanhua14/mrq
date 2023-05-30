@@ -70,6 +70,27 @@ class ExerciseRepository:
             print(e)
             return {"message": "Could not get all exercises"}
 
+    def get_all_by_date(self, user_id, date) -> Union[Error, List[ExerciseOut]]:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    result = db.execute(
+                        """
+                        SELECT id, user_id, minutes, date, category
+                        from exercise
+                        WHERE user_id = %s AND date = %s
+                        """,
+                        [user_id, date]
+                    )
+                    return [
+                        self.record_to_exercise_out(record)
+                        for record in result
+                    ]
+        except Exception as e:
+            print(e)
+            return {"message": "Could not get all exercises"}
+
+
     def record_to_exercise_out(self, record):
         return ExerciseOut(
             id=record[0],
