@@ -82,19 +82,17 @@ function Dashboard() {
         <h1 className="text-center py-3 text-2xl">Today's Goals</h1>
         <div className="flex-1 flex flex-col justify-center">
           <h5 className="btn btn-secondary d-block mx-auto my-3 bg-purple-500 rounded-full text-white py-2 px-4 hover:bg-purple-600 shadow-sm">
-            <button className="mr-2" onClick={() => setExerciseTime(exerciseTime - 1)}>-</button>
-            {exerciseTime} min exercise
-            <button className="ml-2" onClick={() => setExerciseTime(exerciseTime + 1)}>+</button>
+
+            60 min exercise
+
           </h5>
           <h5 className="btn btn-secondary d-block mx-auto my-3 bg-purple-500 rounded-full text-white py-2 px-4 hover:bg-purple-600 shadow-sm">
-            <button className="mr-2" onClick={() => setSleepTime(sleepTime - 1)}>-</button>
-            {sleepTime} hours sleep
-            <button className="ml-2" onClick={() => setSleepTime(sleepTime + 1)}>+</button>
+            8 hours sleep
           </h5>
           <h5 className="btn btn-secondary d-block mx-auto my-3 bg-purple-500 rounded-full text-white py-2 px-4 hover:bg-purple-600 shadow-sm">
-            <button className="mr-2" onClick={() => setWaterOunce(waterOunce - 1)}>-</button>
-            {waterOunce} Oz water
-            <button className="ml-2" onClick={() => setWaterOunce(waterOunce + 1)}>+</button>
+
+            100 oz water
+
           </h5>
         </div>
       </div>
