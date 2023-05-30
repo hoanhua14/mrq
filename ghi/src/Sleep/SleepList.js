@@ -27,9 +27,9 @@ export default function SleepList() {
     fetchData();
   }, [token]);
 
-  const deleteSleep = async ({target}) => {
-    const deleteID = (target.id);
-    const sleepUrl = `${process.env.REACT_APP_MRQ_SERVICE}/api/sleep/${target.id}`
+  const deleteSleep = async (target) => {
+    const deleteID = (target);
+    const sleepUrl = `${process.env.REACT_APP_MRQ_SERVICE}/api/sleep/${target}`
     const fetchConfig = {
         method: "DELETE",
         headers: {
@@ -65,7 +65,7 @@ export default function SleepList() {
                                 <td>{sleep.hours}</td>
                                 <td>{sleep.quality}</td>
                                 <td className="px-6 py-4">
-                                    <button onClick={deleteSleep} id={sleep.id} className="inline-block p-3 text-gray-700 hover:bg-gray-50 focus:relative"
+                                    <button onClick={() => deleteSleep(sleep.id)} className="inline-block p-3 text-gray-700 hover:bg-gray-50 focus:relative"
     title="Delete">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"

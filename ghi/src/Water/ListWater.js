@@ -29,9 +29,9 @@ function WaterList() {
     fetchData();
   }, [token]);
 
-    const deleteWater = async ({ target }) => {
-        const delId = (target.id)
-        const wateridUrl = `${process.env.REACT_APP_MRQ_SERVICE}/api/water/${target.id}`
+    const deleteWater = async (target) => {
+        const delId = (target)
+        const wateridUrl = `${process.env.REACT_APP_MRQ_SERVICE}/api/water/${target}`
         const fetchConfig = {
             method: "DELETE",
             headers: {
@@ -71,7 +71,7 @@ function WaterList() {
                                 <td>{water.date}</td>
                                 <td>{water.ounces}</td>
                                 <td className="px-6 py-4">
-                                    <button onClick={deleteWater} id={water.id} className="inline-block p-3 text-gray-700 hover:bg-gray-50 focus:relative"
+                                    <button onClick={()=> deleteWater(water.id)} className="inline-block p-3 text-gray-700 hover:bg-gray-50 focus:relative"
     title="Delete">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"

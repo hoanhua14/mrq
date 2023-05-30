@@ -29,9 +29,9 @@ function ExerciseList() {
     fetchData();
   }, [token]);
 
-    const deleteExercise = async ({ target }) => {
-        const delId = (target.id)
-        const exerciseurl = `${process.env.REACT_APP_MRQ_SERVICE}/api/exercise/${target.id}`
+    const deleteExercise = async (target ) => {
+        const delId = (target)
+        const exerciseurl = `${process.env.REACT_APP_MRQ_SERVICE}/api/exercise/${target}`
         const fetchConfig = {
             method: "DELETE",
             headers: {
@@ -73,7 +73,7 @@ function ExerciseList() {
                                 <td>{exercise.minutes}</td>
                                 <td>{exercise.category}</td>
                                 <td className="px-6 py-4">
-                                    <button onClick={deleteExercise} id={exercise.id} className="inline-block p-3 text-gray-700 hover:bg-gray-50 focus:relative"
+                                    <button onClick={() => deleteExercise(exercise.id)} id={exercise.id} className="inline-block p-3 text-gray-700 hover:bg-gray-50 focus:relative"
     title="Delete">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
