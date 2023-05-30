@@ -33,7 +33,7 @@ function ExerciseForm() {
             setMinutes('')
             setDate('');
             setCategory('')
-            navigation('/exercise')
+            navigation('/dashboard')
         }
     }
 
