@@ -47,10 +47,8 @@ export default function SleepList() {
 
     return (
         <>
-            <div className="font-weight-bold">All Sleeps</div>
-            <div></div>
             <div>
-                <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm ">
+                <table style={{ backgroundColor: '#e7f9f4'}} className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm ">
                     <thead className="whitespace-nowrap px-4 py-2 font-medium font-bold text-gray-900">
                         <tr >
                             <td>Date</td>
