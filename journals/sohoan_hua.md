@@ -1,6 +1,10 @@
 
+## Week 16, wednesday 5/31
+- finished styling log in and sign up form
 
-
+## Week 16, tuesday 5/30
+- today i finished styling 3 create and list forms of all categories. I ran into an issue which I thought would be css-related but turned out I was passing in the wrong object.
+- styled the greeting and started on sleep stretch goals
 
 ## Week 15, wednesday 5/24
 - Pulled and merged front end auth
