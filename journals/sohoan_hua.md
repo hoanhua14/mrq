@@ -1,4 +1,7 @@
 
+
+
+
 ## Week 15, wednesday 5/24
 - Pulled and merged front end auth
 - worked on fixing errors after merging
