@@ -3,6 +3,34 @@ A list of features/issues that you worked on and who you worked with, if applica
 A reflection on any design conversations that you had
 At least one ah-ha! moment that you had during your coding, however small
 
+## May 31, 2023
+Today, I worked on:
+
+* I set up the unit tests folder, installed pytest created our first unit
+test (get all exercise), and cleaned up any unused React variables to
+prepare for deployment. 
+
+I realized I needed to make a mock user for my unit test because the
+endpoint to get all exercise is protected. At first, I made the unit
+test without this and recieved a 401 error which prompted me to set
+up the mock user in the test.
+
+
+## May 30, 2023
+Today, I worked on:
+
+* Making sure if a user inputs the wrong credentials that the user
+is prompted to try to input their information again. The user should
+not be redirected to the dashboard unless their login is successful.
+
+I added a useState to check if there has been a login attempt. I
+then checked if there was a login attempt and no token. If so,
+the user will be prompted to retry the login. If there is a token,
+then the user will be redirected to the dashboard. I realized I can
+add a paragraph in the form after the submit button that checks if
+there has been a login attempt and display the prompt under the
+button when needed.
+
 ## May 25, 2023
 Today, I worked on:
 
@@ -28,7 +56,7 @@ water table, adds everything up, and then just returns
 the three numbers needed to populate the dashboard. I
 also needed a handler with a constructor. I looked backed
 on my python pratice problems from module 1 to assist
-me with creating a constructor. 
+me with creating a constructor.
 
 ## May 24, 2023
 Today, I worked on:
