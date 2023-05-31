@@ -9,7 +9,7 @@ import AboutUs from "./InfoPages/AboutUs";
 import Features from "./InfoPages/Features";
 import WaterForm from "./Water/WaterForm";
 import WaterList from "./Water/ListWater";
-import Dashboard from "./Dashboard4";
+import Dashboard from "./Dashboard2";
 import Resources from "./InfoPages/Resources";
 import SleepForm from "./Sleep/SleepForm";
 import SleepList from "./Sleep/SleepList";

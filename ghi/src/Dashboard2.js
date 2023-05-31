@@ -2,7 +2,9 @@ import React from "react";
 import { useState, useEffect } from "react";
 import useToken from '@galvanize-inc/jwtdown-for-react';
 import { Link } from 'react-router-dom';
-import Chart from 'chart.js';
+import DonutChart from './DonutChart';
+// import Chart from 'chart.js/auto'
+// import {Doughnut} from 'react-chartjs-2'
 
 function Dashboard() {
   const { token } = useToken();
@@ -32,34 +34,39 @@ function Dashboard() {
   fetchData();
   }, [token]);
 
+  const data = {
+    labels: [
+      'Red',
+      'Blue',
+      'Yellow'
+    ],
+    datasets: [{
+      label: 'My First Dataset',
+      data: [300, 50, 100],
+      backgroundColor: [
+        'rgb(255, 99, 132)',
+        'rgb(54, 162, 235)',
+        'rgb(255, 205, 86)'
+      ],
+      hoverOffset: 4
+    }]
+  };
 
-  (async function() {
-  const data = [
-    { year: 2010, count: 10 },
-    { year: 2011, count: 20 },
-    { year: 2012, count: 15 },
-    { year: 2013, count: 25 },
-    { year: 2014, count: 22 },
-    { year: 2015, count: 30 },
-    { year: 2016, count: 28 },
-  ];
-
-  new Chart(
-    document.getElementById('myChart'),
-    {
-      type: 'bar',
-      data: {
-        labels: data.map(row => row.year),
-        datasets: [
-          {
-            label: 'Acquisitions by year',
-            data: data.map(row => row.count)
-          }
-        ]
-      }
-    }
-  );
-})();
+  const options = {
+    title: {
+      display: true,
+      text: 'Donut Chart',
+    },
+    tooltips: {
+      enabled: true,
+    },
+    legend: {
+      display: true,
+    },
+    text: "Water",
+    textAnchor: "middle",
+    y: -10,
+  };
 
 
   return (
@@ -78,12 +85,15 @@ function Dashboard() {
         <div className="flex-1 flex flex-wrap justify-center items-center">
           <div className="py-3 px-4 w-1/3">
             <div className="card">
-              <img src="https://images.unsplash.com/photo-1504025468847-0e438279542c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8ZXhlcmNpc2V8fHx8fHwxNjg0NzcwNjcz&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080" className="card-img-top object-cover w-full h-48 rounded-lg" alt="Exercise"/>
-              <div className="card-body">
-                <h3 className="card-title text-center text-blue-500">Exercise</h3>
-                <h5 className="card-title text-center">{exerciseTime} Minutes</h5>
-                <h5 className="card-title text-center text-purple-500 border-2 border-green-500"><Link to="/exercise/new">Add a log</Link></h5>
-              </div>
+                {/* <div> */}
+                  <DonutChart percentage={65} />
+                  <img src="https://images.unsplash.com/photo-1504025468847-0e438279542c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8ZXhlcmNpc2V8fHx8fHwxNjg0NzcwNjcz&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080" className="card-img-top object-cover w-full h-48 rounded-lg" alt="Exercise"/>
+                  <div className="card-body">
+                    <h3 className="card-title text-center text-blue-500">Exercise</h3>
+                    <h5 className="card-title text-center">{exerciseTime} Minutes</h5>
+                    <h5 className="card-title text-center text-purple-500 border-2 border-green-500"><Link to="/exercise/new">Add a log</Link></h5>
+                  </div>
+              {/* </div> */}
             </div>
           </div>
           <div className="py-3 px-4 w-1/3">
@@ -112,49 +122,19 @@ function Dashboard() {
         <h1 className="text-center py-3 text-2xl">Today's Goals</h1>
         <div className="flex-1 flex flex-col justify-center">
           <h5 className="btn btn-secondary d-block mx-auto my-3 bg-purple-500 rounded-full text-white py-2 px-4 hover:bg-purple-600 shadow-sm">
-            <button className="mr-2" onClick={() => setExerciseTime(exerciseTime - 1)}>-</button>
-            {exerciseTime} min exercise
-            <button className="ml-2" onClick={() => setExerciseTime(exerciseTime + 1)}>+</button>
+
+            60 min exercise
+
           </h5>
           <h5 className="btn btn-secondary d-block mx-auto my-3 bg-purple-500 rounded-full text-white py-2 px-4 hover:bg-purple-600 shadow-sm">
-            <button className="mr-2" onClick={() => setSleepTime(sleepTime - 1)}>-</button>
-            {sleepTime} hours sleep
-            <button className="ml-2" onClick={() => setSleepTime(sleepTime + 1)}>+</button>
+            8 hours sleep
           </h5>
           <h5 className="btn btn-secondary d-block mx-auto my-3 bg-purple-500 rounded-full text-white py-2 px-4 hover:bg-purple-600 shadow-sm">
-            <button className="mr-2" onClick={() => setWaterOunce(waterOunce - 1)}>-</button>
-            {waterOunce} Oz water
-            <button className="ml-2" onClick={() => setWaterOunce(waterOunce + 1)}>+</button>
+
+            100 oz water
+
           </h5>
         </div>
-        <div>
-          <canvas id="myChart"></canvas>
-        </div>
-        {/* <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> */}
-
-        {/* <script>
-          const ctx = document.getElementById('myChart');
-
-          new Chart(ctx, {
-            type: 'bar',
-            data: {
-              labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-              datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
-              }]
-            },
-            options: {
-              scales: {
-                y: {
-                  beginAtZero: true
-                }
-              }
-            }
-          });
-        </script> */}
-
       </div>
     </div>
     </>
