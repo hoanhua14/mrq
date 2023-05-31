@@ -1,15 +1,17 @@
 
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import useUser from "./useUser";
 
 const Nav = () => {
     const { token, logout } = useToken();
     const { user } = useUser(token);
+    const navigate = useNavigate();
 
     const handleLogout = () => {
         logout();
+        navigate('/');
         window.location.reload();
     };
 

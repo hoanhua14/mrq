@@ -62,4 +62,22 @@ For the logout functionality, I created a useUser.py form that James demonstrate
 ## May 26, 2023 (F)
 
 What I accomplished today:
-*
+* Started working on the about us page section
+
+Got most of it done, just need further format the background correctly so that the page fills. I also need to add GitLab and LinkedIn profile links for each of our members. For the page, I used a template to get inspiration from and then I formatted it differently because I wanted it to look the way we have it instead of the template's version.
+
+## May 30, 2023 (T)
+
+What I accomplished today:
+* Finished up the about us page section
+* Added another logout functionality to navigate to the mainpage after clicking it
+* Started working on password matching validation on the sign up form
+
+
+The background image still needs to formatted a bit better but overall it's good as it is for now.
+I also started working on the password matching validation on the sign up form. It required me to install some npm packages but I read on stack overflow somewhere about this person did some npm installs for something else and their project broke. That made me a bit paranoid so I just pulled from the latest commit so that I wouldn't have those installed dependencies in my package.json just in case and started from scratch.
+
+
+## May 31, 2023 (T)
+
+What I accomplished today:
