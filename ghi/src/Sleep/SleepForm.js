@@ -48,7 +48,7 @@ function SleepForm() {
             setDate('');
             setHours('');
             setQuality('');
-            navigate('/sleep/all');
+            navigate('/dashboard');
         }
     }
 
