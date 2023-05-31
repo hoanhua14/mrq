@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import useToken from '@galvanize-inc/jwtdown-for-react';
 import StyledButton from './ReactComponents/button';
@@ -19,7 +19,6 @@ function ExerciseForm() {
         data.category = category;
 
         const exerciseURL = `${process.env.REACT_APP_MRQ_SERVICE}/api/exercise`
-        console.log(document.cookie)
         const fetchConfig = {
             method: "post",
             body: JSON.stringify(data),
