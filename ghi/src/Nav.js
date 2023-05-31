@@ -47,7 +47,8 @@ const Nav = () => {
                 </NavLink>
                 {user ? (
                     <>
-                        Good to see you, {user.first}
+                        <span className="text-black">{`Good to see you, ${user.first}`}</span>
+                        <NavLink to="/dashboard">Goals</NavLink>
                         <button onClick={handleLogout}>Sign out</button>
                     </>
                 ) : (

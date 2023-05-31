@@ -75,9 +75,12 @@ What I accomplished today:
 
 
 The background image still needs to formatted a bit better but overall it's good as it is for now.
-I also started working on the password matching validation on the sign up form. It required me to install some npm packages but I read on stack overflow somewhere about this person did some npm installs for something else and their project broke. That made me a bit paranoid so I just pulled from the latest commit so that I wouldn't have those installed dependencies in my package.json just in case and started from scratch.
+I also started working on the password matching validation on the sign up form. It required me to install some npm packages but I read on stack overflow somewhere about this person did some npm installs for something else and their project broke. That made me a bit paranoid so I just pulled from the latest commit so that I wouldn't have those installed dependencies in my package.json just in case and started from scratch. I looked more online and saw that there's no need to install anything extra for password matching validation. I just an if statement and a couple more state variables and incorporated it into the return.
 
 
 ## May 31, 2023 (T)
 
 What I accomplished today:
+* Made small changes to the nav bar
+
+When logged in, there's some visual spacing between the greeting and resources button. I also made it so that a button to the dashboard appears when a user is logged in.
