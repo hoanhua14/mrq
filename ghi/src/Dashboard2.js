@@ -3,8 +3,6 @@ import { useState, useEffect } from "react";
 import useToken from '@galvanize-inc/jwtdown-for-react';
 import { Link } from 'react-router-dom';
 import DonutChart from './DonutChart';
-// import Chart from 'chart.js/auto'
-// import {Doughnut} from 'react-chartjs-2'
 
 function Dashboard() {
   const { token } = useToken();
@@ -34,105 +32,78 @@ function Dashboard() {
   fetchData();
   }, [token]);
 
-  const data = {
-    labels: [
-      'Red',
-      'Blue',
-      'Yellow'
-    ],
-    datasets: [{
-      label: 'My First Dataset',
-      data: [300, 50, 100],
-      backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)'
-      ],
-      hoverOffset: 4
-    }]
-  };
-
-  const options = {
-    title: {
-      display: true,
-      text: 'Donut Chart',
-    },
-    tooltips: {
-      enabled: true,
-    },
-    legend: {
-      display: true,
-    },
-    text: "Water",
-    textAnchor: "middle",
-    y: -10,
-  };
-
-
   return (
     <>
     <div className="flex h-screen">
       <div className="bg-gray-100 flex flex-col w-1/5">
-        <h1 className="text-center py-3 text-2xl">Dashboard</h1>
+        <h1 className="text-center pt-3 text-2xl">Dashboard</h1>
         <ul className="flex-1 flex flex-col justify-center">
-          <li className="text-center py-2 px-4 hover:bg-gray-200"><Link to="/exercise">Move</Link></li>
-          <li className="text-center py-2 px-4 hover:bg-gray-200"><Link to="/sleep/all">Rest</Link></li>
-          <li className="text-center py-2 px-4 hover:bg-gray-200"><Link to="/water">Quench</Link></li>
+          <li className="text-center py-2 px-4 hover:bg-gray-200 text-5xl font-bold mb-10"><Link to="/exercise">Move</Link></li>
+          <li className="text-center py-2 px-4 hover:bg-gray-200 text-5xl font-bold mb-10"><Link to="/sleep/all">Rest</Link></li>
+          <li className="text-center py-2 px-4 hover:bg-gray-200 text-5xl font-bold mb-10"><Link to="/water">Quench</Link></li>
         </ul>
       </div>
       <div className="bg-white flex flex-col w-3/5">
-        <h1 className="text-center py-3 text-2xl">Today's Overview</h1>
+        <h1 className="text-center pt-3 text-2xl">Today's Overview</h1>
         <div className="flex-1 flex flex-wrap justify-center items-center">
           <div className="py-3 px-4 w-1/3">
             <div className="card">
-                {/* <div> */}
-                  <DonutChart percentage={65} />
-                  <img src="https://images.unsplash.com/photo-1504025468847-0e438279542c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8ZXhlcmNpc2V8fHx8fHwxNjg0NzcwNjcz&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080" className="card-img-top object-cover w-full h-48 rounded-lg" alt="Exercise"/>
-                  <div className="card-body">
-                    <h3 className="card-title text-center text-blue-500">Exercise</h3>
-                    <h5 className="card-title text-center">{exerciseTime} Minutes</h5>
-                    <h5 className="card-title text-center text-purple-500 border-2 border-green-500"><Link to="/exercise/new">Add a log</Link></h5>
-                  </div>
-              {/* </div> */}
+              <div className="card-body">
+                <h3 className="card-title text-center text-blue-500 text-5xl font-bold mb-9">Exercise</h3>
+                <p className="card-title text-center text-2xl">{exerciseTime} Minutes</p>
+              </div>
+              <div className="flex items-center justify-center mt-9 mb-9" >
+                <DonutChart percentage={Math.round(exerciseTime / 60 * 100)} />
+              </div>
+              <Link to="/exercise/new">
+                <img src="https://images.unsplash.com/photo-1504025468847-0e438279542c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8ZXhlcmNpc2V8fHx8fHwxNjg0NzcwNjcz&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080" className="card-img-top object-cover w-full h-48 rounded-lg" alt="Exercise"/>
+                <p className="card-title text-center text-purple-500 border-2 border-green-500 text-xl font-bold">Add a log</p>
+              </Link>
             </div>
           </div>
           <div className="py-3 px-4 w-1/3">
             <div className="card">
-              <img src="https://images.unsplash.com/photo-1650896064319-b83f56e3065b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8ZHJpbmtpbmctd2F0ZXJ8fHx8fHwxNjg0NzcwNTMz&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080" className="card-img-top object-cover w-full h-48 rounded-lg" alt="Water"/>
               <div className="card-body">
-                <h3 className="card-title text-center text-blue-500">Water</h3>
-                <h5 className="card-title text-center">{waterOunce} Ounces</h5>
-                <h5 className="card-title text-center text-purple-500 border-2 border-green-500"><Link to="/water/new">Add a log</Link></h5>
+                <h3 className="card-title text-center text-blue-500 text-5xl font-bold mb-9">Sleep</h3>
+                <p className="card-title text-center text-2xl">{sleepTime} Hours</p>
               </div>
+              <div className="flex items-center justify-center mt-9 mb-9" >
+                <DonutChart percentage={Math.round(sleepTime / 8 * 100)} />
+              </div>
+              <Link to="/sleep/new">
+                <img src="https://images.unsplash.com/photo-1512290793455-dd2f915493bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8c2xlZXB8fHx8fHwxNjg0NzcwNzI4&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080" className="card-img-top object-cover w-full h-48 rounded-lg" alt="Sleep"/>
+                <p className="card-title text-center text-purple-500 border-2 border-green-500 text-xl font-bold">Add a log</p>
+              </Link>
             </div>
           </div>
           <div className="py-3 px-4 w-1/3">
             <div className="card">
-              <img src="https://images.unsplash.com/photo-1512290793455-dd2f915493bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8c2xlZXB8fHx8fHwxNjg0NzcwNzI4&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080" className="card-img-top object-cover w-full h-48 rounded-lg" alt="Sleep"/>
               <div className="card-body">
-                <h3 className="card-title text-center text-blue-500">Sleep</h3>
-                <h5 className="card-title text-center">{sleepTime} Hours</h5>
-                <h5 className="card-title text-center text-purple-500 border-2 border-green-500"><Link to="/sleep/new">Add a log</Link></h5>
+                <h3 className="card-title text-center text-blue-500 text-5xl font-bold mb-9">Water</h3>
+                <p className="card-title text-center text-2xl">{waterOunce} Ounces</p>
               </div>
+              <div className="flex items-center justify-center mt-9 mb-9" >
+                <DonutChart percentage={Math.round(waterOunce / 60 * 100)} />
+              </div>
+              <Link to="/water/new">
+                <img src="https://images.unsplash.com/photo-1650896064319-b83f56e3065b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8ZHJpbmtpbmctd2F0ZXJ8fHx8fHwxNjg0NzcwNTMz&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080" className="card-img-top object-cover w-full h-48 rounded-lg" alt="Water"/>
+                <p className="card-title text-center text-purple-500 border-2 border-green-500 text-xl font-bold">Add a log</p>
+              </Link>
             </div>
           </div>
         </div>
       </div>
       <div className="bg-gray-100 flex flex-col w-1/5">
-        <h1 className="text-center py-3 text-2xl">Today's Goals</h1>
+        <h1 className="text-center pt-3 text-2xl">Today's Goals</h1>
         <div className="flex-1 flex flex-col justify-center">
           <h5 className="btn btn-secondary d-block mx-auto my-3 bg-purple-500 rounded-full text-white py-2 px-4 hover:bg-purple-600 shadow-sm">
-
             60 min exercise
-
           </h5>
           <h5 className="btn btn-secondary d-block mx-auto my-3 bg-purple-500 rounded-full text-white py-2 px-4 hover:bg-purple-600 shadow-sm">
             8 hours sleep
           </h5>
           <h5 className="btn btn-secondary d-block mx-auto my-3 bg-purple-500 rounded-full text-white py-2 px-4 hover:bg-purple-600 shadow-sm">
-
             100 oz water
-
           </h5>
         </div>
       </div>
