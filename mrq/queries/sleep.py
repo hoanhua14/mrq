@@ -1,20 +1,27 @@
-from pydantic import BaseModel, ValidationError
+from pydantic import BaseModel
 from datetime import date
 from queries.pool import pool
 from typing import List, Union
+
+
 class SleepIn(BaseModel):
     hours: int
     date: date
     quality: int
 
+
 class Error(BaseModel):
     message: str
+
+
 class SleepOut(BaseModel):
     id: int
     user_id: int
     hours: int
     date: date
     quality: int
+
+
 class SleepRepository:
     def create(self, user_id, sleep: SleepIn) -> Union[SleepOut, Error]:
         try:
@@ -28,7 +35,7 @@ class SleepRepository:
                             (%s, %s, %s, %s)
                         RETURNING id, user_id;
                         """,
-                        [user_id, sleep.hours, sleep.date, sleep.quality]
+                        [user_id, sleep.hours, sleep.date, sleep.quality],
                     )
                     id = result.fetchone()[0]
                     return self.sleep_in_to_out(id, user_id, sleep)
@@ -42,7 +49,7 @@ class SleepRepository:
             user_id=record[1],
             hours=record[2],
             date=record[3],
-            quality=record[4]
+            quality=record[4],
         )
 
     def sleep_in_to_out(self, id: int, user_id: int, sleep: SleepIn):
@@ -59,17 +66,18 @@ class SleepRepository:
                         FROM sleep
                         WHERE user_id = %s
                         """,
-                        [user_id]
+                        [user_id],
                     )
                     print(user_id)
                     return [
-                        self.record_to_sleep_out(record)
-                        for record in result
+                        self.record_to_sleep_out(record) for record in result
                     ]
         except Exception as e:
             return {"message": str(e)}
 
-    def get_all_by_date(self, user_id: int, date) -> Union[List[SleepOut], Error]:
+    def get_all_by_date(
+        self, user_id: int, date
+    ) -> Union[List[SleepOut], Error]:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
@@ -79,16 +87,14 @@ class SleepRepository:
                         FROM sleep
                         WHERE user_id = %s AND date = %s
                         """,
-                        [user_id, date]
+                        [user_id, date],
                     )
                     print(user_id)
                     return [
-                        self.record_to_sleep_out(record)
-                        for record in result
+                        self.record_to_sleep_out(record) for record in result
                     ]
         except Exception as e:
             return {"message": str(e)}
-
 
     def delete_sleep(self, id: int, user_id: int) -> bool:
         try:
@@ -100,7 +106,7 @@ class SleepRepository:
                         WHERE id = %s
                         AND user_id = %s
                         """,
-                        [id, user_id]
+                        [id, user_id],
                     )
                     return result.rowcount > 0
         except Exception:
