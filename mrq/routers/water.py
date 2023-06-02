@@ -26,6 +26,7 @@ def get_one_water(
         response.status_code = 404
     return water
 
+
 @router.get("/api/water", response_model=Union[List[WaterOut], Error])
 def get_all_water(
     repo: WaterRepository = Depends(),
@@ -33,6 +34,7 @@ def get_all_water(
 ):
     user_id = account_data["id"]
     return repo.get_all(user_id)
+
 
 @router.post("/api/water", response_model=Union[WaterOut, Error])
 def create_water(
@@ -43,6 +45,7 @@ def create_water(
 ):
     user_id = account_data["id"]
     return repo.create(user_id, water)
+
 
 @router.delete("/api/water/{id}", response_model=bool)
 def delete_water(

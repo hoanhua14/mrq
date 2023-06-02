@@ -34,9 +34,9 @@ const SignupForm = () => {
     };
 
     return (
-    <div className="bg-yellow-200 py-20">
+    <div className="py-20" style={{ backgroundColor: '#e7f9f4'}}>
         <div className="max-w-md mx-auto">
-        <div className="bg-white p-8 rounded shadow">
+        <div className="bg-white p-8 rounded shadow" style={{ backgroundColor: '#c5f2e6' }}>
             <h1 className="text-2xl font-bold mb-4">Create an account!</h1>
             <form onSubmit={(e) => handleSignup(e)}>
             <div className="mb-4">

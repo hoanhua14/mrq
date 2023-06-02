@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import useToken from "@galvanize-inc/jwtdown-for-react";
+import StyledButton from './ReactComponents/button';
 
 
 const LoginForm = () => {
@@ -29,11 +30,11 @@ const LoginForm = () => {
     }, [token, loginattempt]);
 
     return (
-<div className="bg-yellow-200 py-8">
-        <div className="max-w-md mx-auto">
-        <div className="bg-white p-8 rounded shadow">
+<div className=" py-8" style={{ backgroundColor: '#e7f9f4'}}>
+        <div className="max-w-md mx-auto" >
+        <div className="bg-white p-8 rounded shadow" style={{ backgroundColor: '#c5f2e6' }}>
             <h1 className="text-2xl font-bold mb-4">Login to start crushing your goals!</h1>
-            <form onSubmit={handleLogin}>
+            <form onSubmit={handleLogin} >
             <div className="mb-4">
                 <input
                 onChange={(event) => setEmail(event.target.value)}
@@ -58,9 +59,9 @@ const LoginForm = () => {
                 value={password}
                 />
             </div>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            <StyledButton text="Log in" type="Log in">
                 Login
-            </button>
+            </StyledButton>
             </form>
             {loginattempt ? (
                 <div>

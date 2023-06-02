@@ -1,15 +1,18 @@
 from pydantic import BaseModel
-from typing import List, Optional, Union
+from typing import List, Union
 from datetime import date
 from queries.pool import pool
 
+
 class Error(BaseModel):
     message: str
+
 
 class ExerciseIn(BaseModel):
     minutes: int
     date: date
     category: str
+
 
 class ExerciseOut(BaseModel):
     id: int
@@ -19,9 +22,10 @@ class ExerciseOut(BaseModel):
     category: str
 
 
-
 class ExerciseRepository:
-    def create(self, user_id, exercise: ExerciseIn) -> Union[ExerciseOut, Error]:
+    def create(
+        self, user_id, exercise: ExerciseIn
+    ) -> Union[ExerciseOut, Error]:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
@@ -37,16 +41,15 @@ class ExerciseRepository:
                             user_id,
                             exercise.minutes,
                             exercise.date,
-                            exercise.category
-                        ]
-
+                            exercise.category,
+                        ],
                     )
                     id = result.fetchone()[0]
                     return self.exercise_in_to_out(id, user_id, exercise)
         except Exception as e:
             return {"message": str(e)}
 
-    def exercise_in_to_out(self, id:int, user_id: int, exercise: ExerciseIn):
+    def exercise_in_to_out(self, id: int, user_id: int, exercise: ExerciseIn):
         old_data = exercise.dict()
         return ExerciseOut(id=id, user_id=user_id, **old_data)
 
@@ -60,7 +63,7 @@ class ExerciseRepository:
                         from exercise
                         WHERE user_id = %s
                         """,
-                        [user_id]
+                        [user_id],
                     )
                     return [
                         self.record_to_exercise_out(record)
@@ -70,7 +73,9 @@ class ExerciseRepository:
             print(e)
             return {"message": "Could not get all exercises"}
 
-    def get_all_by_date(self, user_id, date) -> Union[Error, List[ExerciseOut]]:
+    def get_all_by_date(
+        self, user_id, date
+    ) -> Union[Error, List[ExerciseOut]]:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
@@ -80,7 +85,7 @@ class ExerciseRepository:
                         from exercise
                         WHERE user_id = %s AND date = %s
                         """,
-                        [user_id, date]
+                        [user_id, date],
                     )
                     return [
                         self.record_to_exercise_out(record)
@@ -90,17 +95,16 @@ class ExerciseRepository:
             print(e)
             return {"message": "Could not get all exercises"}
 
-
     def record_to_exercise_out(self, record):
         return ExerciseOut(
             id=record[0],
             user_id=record[1],
             minutes=record[2],
             date=record[3],
-            category=record[4]
+            category=record[4],
         )
 
-    def delete(self, id: int, user_id:int) -> bool:
+    def delete(self, id: int, user_id: int) -> bool:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
@@ -110,10 +114,7 @@ class ExerciseRepository:
                         WHERE id = %s
                         AND user_id = %s
                         """,
-                        [
-                            id,
-                            user_id
-                        ]
+                        [id, user_id],
                     )
                     return result.rowcount > 0
         except Exception as e:
