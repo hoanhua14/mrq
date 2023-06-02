@@ -6,7 +6,7 @@ const DonutChart = ({ percentage }) => {
   const strokeDasharray = `${(percentage / 100) * circumference} ${circumference}`;
 
   return (
-    <div className="relative w-34 h-34">
+    <div className="relative w-34 h-34 dashboard-font-bold">
       <svg viewBox="0 0 50 50" className="w-full h-full">
         <circle
           className="text-gray-200 stroke-current"

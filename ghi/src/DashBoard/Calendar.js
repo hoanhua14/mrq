@@ -12,7 +12,7 @@ const Calendar = () => {
   }
 
   return (
-    <div className="p-4">
+    <div className="p-2 dashboard-font-normal dashboard-border">
       <div className="text-center text-2xl font-bold mb-4">
         {date.toLocaleString('default', { month: 'long' })} {date.getFullYear()}
       </div>
@@ -34,7 +34,7 @@ const Calendar = () => {
               <td key={i} className="border p-2"></td>
             ))}
             {days.slice(0, 7 - firstDayOfMonth).map(day => (
-              <td key={day} className={`border p-2 ${day === date.getDate() ? 'bg-blue-200' : ''}`}>
+              <td key={day} className={`border p-2 ${day === date.getDate() ? 'bg-violet-300' : ''}`}>
                 {day}
               </td>
             ))}

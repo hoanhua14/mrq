@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Aoboshi+One&family=Kanit:wght@900&family=Special+Elite&display=swap');
-
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 .App {
   text-align: center;
@@ -42,8 +43,13 @@
  border-color: rgb(2, 0, 7);
 }
 
-.dashboard-font {
-  font-family: 'Aoboshi One', serif;
+.dashboard-font-normal {
+  font-family: 'Poppins', sans-serif;
+}
+
+.dashboard-font-bold {
+  font-family: 'Poppins', sans-serif;
+  font-weight:bold;
 }
 
 .dashboard-border {
@@ -51,6 +57,8 @@
   margin-top: 15px;
   border-radius: 10px;
 }
+
+
 
 .dashboard-height {
   max-height: 90vh;
