@@ -2,11 +2,14 @@ from pydantic import BaseModel
 from queries.pool import pool
 from typing import Optional, Union, List
 
+
 class Error(BaseModel):
     message: str
 
+
 class DuplicateAccountError(ValueError):
     pass
+
 
 class AccountIn(BaseModel):
     first: str
@@ -17,6 +20,7 @@ class AccountIn(BaseModel):
     gender: str
     race: str
 
+
 class AccountOut(BaseModel):
     id: int
     first: str
@@ -25,6 +29,7 @@ class AccountOut(BaseModel):
     age: int
     gender: str
     race: str
+
 
 class AccountOutWithPassword(AccountOut):
     hashed_password: str
@@ -40,13 +45,14 @@ class AccountQueries:
             email=record[4],
             age=record[5],
             gender=record[6],
-            race=record[7]
+            race=record[7],
         )
         print(account_dict)
         return account_dict
 
-    def create(self, user: AccountIn,
-               hashed_password: str) -> AccountOutWithPassword:
+    def create(
+        self, user: AccountIn, hashed_password: str
+    ) -> AccountOutWithPassword:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
@@ -80,20 +86,20 @@ class AccountQueries:
                             user.age,
                             user.gender,
                             user.race,
-                        ]
+                        ],
                     )
                     print("insert worked?")
                     id = result.fetchone()[0]
                     print("ID GOTTEN", id)
                     return AccountOutWithPassword(
-                        id = id,
-                        first = user.first,
-                        last = user.last,
-                        hashed_password = hashed_password,
-                        email = user.email,
-                        age = user.age,
-                        gender = user.gender,
-                        race = user.race,
+                        id=id,
+                        first=user.first,
+                        last=user.last,
+                        hashed_password=hashed_password,
+                        email=user.email,
+                        age=user.age,
+                        gender=user.gender,
+                        race=user.race,
                     )
         except Exception:
             return {"message": "Could not create user!!"}
@@ -144,8 +150,7 @@ class AccountQueries:
                         """
                     )
                     return [
-                        self.record_to_account_out(record)
-                        for record in result
+                        self.record_to_account_out(record) for record in result
                     ]
         except Exception as e:
             print(e)
@@ -168,7 +173,7 @@ class AccountQueries:
                         FROM users
                         WHERE id = %s
                         """,
-                        [id]
+                        [id],
                     )
                     record = result.fetchone()
                     print("record found", record)

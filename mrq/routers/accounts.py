@@ -18,20 +18,25 @@ from queries.accounts import (
     AccountOut,
     AccountOutWithPassword,
     AccountQueries,
-    DuplicateAccountError
+    DuplicateAccountError,
 )
+
 
 class AccountForm(BaseModel):
     username: str
     password: str
 
+
 class AccountToken(Token):
     account: AccountOut
+
 
 class HttpError(BaseModel):
     detail: str
 
+
 router = APIRouter()
+
 
 @router.get("/token", response_model=AccountToken | None)
 async def get_token(
@@ -42,8 +47,9 @@ async def get_token(
         return {
             "access_token": request.cookies[authenticator.cookie_name],
             "token_type": "Bearer",
-            "account": account
+            "account": account,
         }
+
 
 @router.post("/api/accounts", response_model=AccountToken | HttpError)
 async def create_account(
@@ -53,10 +59,10 @@ async def create_account(
     repo: AccountQueries = Depends(),
 ):
     hashed_password = authenticator.hash_password(info.password)
-    print("here hashed_password",hashed_password)
+    print("here hashed_password", hashed_password)
     try:
         account = repo.create(info, hashed_password)
-        print("account from create method",account)
+        print("account from create method", account)
     except DuplicateAccountError:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
@@ -66,13 +72,17 @@ async def create_account(
     token = await authenticator.login(response, request, form, repo)
     return AccountToken(account=account, **token.dict())
 
+
 @router.get("/api/accounts", response_model=Union[List[AccountOut], Error])
 def get_all(
     repo: AccountQueries = Depends(),
 ):
     return repo.get_all()
 
-@router.get("/api/accounts/{id}", response_model=Optional[AccountOutWithPassword])
+
+@router.get(
+    "/api/accounts/{id}", response_model=Optional[AccountOutWithPassword]
+)
 def get_one_account(
     id: int,
     response: Response,
@@ -81,8 +91,9 @@ def get_one_account(
     account = repo.get_one(id)
     if account is None:
         response.status_code = 404
-    print (account)
+    print(account)
     return account
+
 
 # @router.delete("/api/accounts/{id}", response_model=bool)
 # def delete_account(
