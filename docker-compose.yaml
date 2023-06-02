@@ -13,8 +13,7 @@ services:
     environment:
       DATABASE_URL: postgresql://MRQ:MRQ@postgres/postgres
       WAIT_HOSTS: postgres:5432
-      # SIGNING_KEY: MRQSUPERSECRET
-      SIGNING_KEY: 8b8d7b5632b8dfe5b99aef25145e2c0c970511a6d919a8ad256a2a6d1fd9e290
+      SIGNING_KEY: MRQSUPERSECRET
       WAIT_BEFORE: 5
       WAIT_TIMEOUT: 60
 

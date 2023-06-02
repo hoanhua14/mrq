@@ -39,17 +39,17 @@ const SignupForm = () => {
     navigate('/dashboard');
   };
 
-  return (
-    <div style={{ backgroundImage: "url(https://i.imgur.com/jT2gUif.png)", backgroundSize: "cover" }}>
-      <div className="max-w-md mx-auto">
-        <div className="bg-white p-7 rounded-xl shadow">
-          <h1 className="text-2xl font-bold mb-4">Create an account!</h1>
+    return (
+    <div className="py-20" style={{ backgroundColor: '#e7f9f4'}}>
+        <div className="max-w-md mx-auto">
+        <div className="bg-white p-8 rounded shadow" style={{ backgroundColor: '#c5f2e6' }}>
+            <h1 className="text-2xl font-bold mb-4">Create an account!</h1>
           {!passwordsMatch && (
             <div className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded self-bottom">
               <p>Passwords do not match, please try again</p>
             </div>
           )}
-          <form onSubmit={(e) => handleSignup(e)}>
+            <form onSubmit={(e) => handleSignup(e)}>
             <div className="mb-4">
               <input
                 onChange={(e) => {

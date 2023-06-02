@@ -45,43 +45,57 @@ const people = [
 
 function AboutUs() {
   return (
-    <div
-      className="py-100 flex items-center justify-center"
-      style={{
-        backgroundImage: `url('https://i.imgur.com/jT2gUif.png')`,
-        backgroundSize: '100% 100%',
-        backgroundPosition: 'center',
-        width: '100vw',
-        height: '75vh',
-        margin: 0,
-        padding: 0,
-        display: 'flex'
-      }}
-    >
-      <div className="mx-auto grid max-w-7xl gap-x-12 gap-y-12 px-6">
-        <div className="max-w-2xl">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-center">The Creators</h2>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
-            Meet the team at MRQ, a group of developers passionate about self-care because health is wealth.
-          </p>
-        </div>
-        <ul role="list" className="grid gap-x-10 gap-y-6 grid-cols-4">
-          {people.map((person) => (
-            <li key={person.name}>
-              <div className="flex flex-col items-center gap-y-2">
-                <img className="h-40 w-40 rounded-xl object-cover" src={person.imageUrl} alt="pics of MRQ team member" />
-                <h3 className="text-3xl font-semibold leading-9 tracking-tight text-gray-900">{person.name}</h3>
-                <p className="italic text-md font-normal leading-6 text-cyan-400">{person.role}</p>
-                <div className="flex items-center mt-1 gap-x-2">
-                  <a href={person.gitlab}><img className="w-6 h-6" src={person.gitlablogo} alt="GitLab logo" /></a>
-                  <a href={person.linkedin}><img className="w-6 h-6" src={person.linkedinlogo} alt="LinkedIn logo" /></a>
+    <div className="'2xl':container mx-auto">
+      <section className="relative bg-[url(https://i.imgur.com/VK0GCzK.png)] bg-cover bg-center bg-no-repeat flex-grow">
+        <div className="absolute inset-0 bg-white/75 sm:bg-transparent sm:from-white/95 sm:to-white/25 ltr:sm:bg-gradient-to-r rtl:sm:bg-gradient-to-l"></div>
+        <div className="relative max-w-screen-xl mx-auto px-4 py-32 lg:flex lg:h-screen lg:items-center lg:px-15">
+          <h2 className="text-3xl font-extrabold text-rose-600 sm:text-5xl">
+            Meet the Team
+          </h2>
+          <div className="grid grid-cols-2 gap-12 mt-8 sm:grid-cols-4">
+            {people.map((person, index) => (
+              <div key={index} className="flex flex-col items-center">
+                <img
+                  className="drop-shadow-xl h-40 w-40 rounded-xl object-cover"
+                  src={person.imageUrl}
+                  alt={person.name}
+                />
+                <h3 className="mt-4 text-lg font-bold text-black">
+                  {person.name}
+                </h3>
+                <p className="mt-1 font-semibold text-md text-gray-400">{person.role}</p>
+                <div className="flex mt-2">
+                  <a
+                    href={person.gitlab}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mr-2"
+                  >
+                    <img
+                      className="w-6 h-6"
+                      src={person.gitlablogo}
+                      alt="GitLab"
+                    />
+                  </a>
+                  <a
+                    href={person.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      className="w-6 h-6"
+                      src={person.linkedinlogo}
+                      alt="LinkedIn"
+                    />
+                  </a>
                 </div>
               </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
+
 export default AboutUs;

@@ -16,7 +16,8 @@ const Nav = () => {
     };
 
   return (
-    <nav className="bg-yellow-300 py-4">
+    <nav className="py-4"
+    style={{ backgroundColor: '#c5f2e6' }}>
       <div className="max-w-6xl mx-auto flex justify-between items-center px-4">
         <div className="text-black font-bold text-lg">Logo</div>
         <div className="flex justify-center flex-grow">
@@ -45,18 +46,47 @@ const Nav = () => {
                 >
                 Resources
                 </NavLink>
-                {user ? (
-                    <>
-                        <span className="text-black">{`Good to see you, ${user.first}`}</span>
-                        <NavLink to="/dashboard">Goals</NavLink>
-                        <button onClick={handleLogout}>Sign out</button>
-                    </>
-                ) : (
-                    <>
-                        <NavLink to="/login">Login</NavLink>
-                        <NavLink to="/signup">Sign up</NavLink>
-                    </>
-                )}
+                <div className='absolute top-0 right-0'>
+                  {user ? (
+                      <div className="font-bold">
+                          Good to see you, {user.first}
+                          <div></div>
+                          <button onClick={handleLogout}>Sign out?</button>
+                          <NavLink to="/dashboard">Goals</NavLink>
+                      </div>
+                  ) : (
+                      <>
+                          <NavLink
+                            className="group relative inline-block focus:outline-none focus:ring"
+                            to="/login"
+                          >
+                            <span
+                              className="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-yellow-300 transition-transform group-hover:translate-y-0 group-hover:translate-x-0"
+                            ></span>
+
+                            <span
+                              className="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest text-black group-active:text-opacity-75"
+                            >
+                              Log In
+                            </span>
+                          </NavLink>
+                          <NavLink
+                            className="group relative inline-block focus:outline-none focus:ring"
+                            to="/signup"
+                          >
+                            <span
+                              className="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-yellow-300 transition-transform group-hover:translate-y-0 group-hover:translate-x-0"
+                            ></span>
+
+                            <span
+                              className="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest text-black group-active:text-opacity-75"
+                            >
+                              Sign Up
+                            </span>
+                          </NavLink>
+                      </>
+                  )}
+                </div>
             </div>
         </div>
       </div>
