@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Aoboshi+One&family=Kanit:wght@900&family=Special+Elite&display=swap');
+
+
 .App {
   text-align: center;
 }
@@ -37,4 +40,18 @@
 .resources-page:hover {
  background-color: rgb(200, 185, 241);
  border-color: rgb(2, 0, 7);
+}
+
+.dashboard-font {
+  font-family: 'Aoboshi One', serif;
+}
+
+.dashboard-border {
+  border: 2px solid rgb(19, 94, 9);
+  margin-top: 15px;
+  border-radius: 10px;
+}
+
+.dashboard-height {
+  max-height: 90vh;
 }
