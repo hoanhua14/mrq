@@ -94,7 +94,7 @@ function Dashboard() {
                 <p className="card-title text-center text-2xl">{waterOunce} Ounces</p>
               </div>
               <div className="flex items-center justify-center mt-5 mb-5" >
-                <DonutChart percentage={Math.round(waterOunce / 60 * 100)} />
+                <DonutChart percentage={Math.round(waterOunce / 100 * 100)} />
               </div>
               <div className="border-2 border-grey text-purple-500 rounded-lg overflow-hidden shadow-lg hover:bg-violet-300 hover:border-blue-500 hover:text-black">
                 <Link to="/water/new">
@@ -112,17 +112,17 @@ function Dashboard() {
           <p className="btn d-block mx-auto mb-1 bg-purple-500 rounded-md text-white pt-7 pb-3 px-4 w-40">
             <span className="text-left text-4xl block leading-none" style={{lineHeight: '0.2'}}>60</span>
             <span className="text-right text-2xl block leading-none" style={{lineHeight: '0.2'}}>min</span><br/>
-            <span className="text-right text-base block leading-none" style={{lineHeight: '0.2'}}>total exercise</span>
+            <span className="text-right text-sm block leading-none" style={{lineHeight: '0.2'}}>exercise duration</span>
           </p>
           <p className="btn d-block mx-auto mb-1 bg-purple-500 rounded-md text-white pt-7 pb-3 px-4 w-40">
             <span className="text-left text-4xl block leading-none" style={{lineHeight: '0.2'}}>8</span>
             <span className="text-right text-2xl block leading-none" style={{lineHeight: '0.2'}}>hours</span><br/>
-            <span className="text-right text-base block leading-none" style={{lineHeight: '0.2'}}>last night sleep</span>
+            <span className="text-right text-sm block leading-none" style={{lineHeight: '0.2'}}>nighttime sleep</span>
           </p>
           <p className="btn d-block mx-auto mb-1 bg-purple-500 rounded-md text-white pt-7 pb-3 px-4 w-40">
             <span className="text-left text-4xl block leading-none" style={{lineHeight: '0.2'}}>100</span>
             <span className="text-right text-2xl block leading-none" style={{lineHeight: '0.2'}}>Oz</span><br/>
-            <span className="text-right text-base block leading-none" style={{lineHeight: '0.2'}}>Water</span>
+            <span className="text-right text-sm block leading-none" style={{lineHeight: '0.2'}}>water intake</span>
           </p>
         </div>
         <div className="flex items-center justify-center mt-12" >

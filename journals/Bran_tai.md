@@ -1,3 +1,23 @@
+## June 1 2023
+* Continue working on CI/CD.
+* A mini calendar table in Dashboard is finished.
+
+## June 1 2023
+* Decided to use the Donut chart feature in Tailwind. Proceeding with layout, color and styling.
+* Try to create a mini calendar table in Dashboard.
+* Start working on CI/CD.
+
+
+## May 31 2023
+* The Chart.js doesn't allow to add text at the center of a Donut chart. Testing the Donut chart feature from Tailwind.
+* Try to create a mini calendar table in Dashboard
+* The merge request for the Resournces page is approved.
+
+## May 30, 2023
+* The merge request for adding the Token validation into WaterForm and WaterList is approved.
+* Creating a merge request for the Resournces page.
+* Testing Chart.js features for Dashboard design
+
 ## May 25, 2023
 * Creating a merge request for adding the Token validation into WaterForm and WaterList.
 * Updating some features in Dashboard design
