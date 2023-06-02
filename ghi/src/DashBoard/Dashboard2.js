@@ -39,16 +39,16 @@ function Dashboard() {
     <div className="flex h-screen dashboard-height">
       <div className="bg-gray-100 flex flex-col w-1/5 dashboard-font-bold">
         <h1 className="text-center text-3xl text-black pt-9 dashboard-font-bold">Dashboard</h1>
-        <ul className="flex-1 flex flex-col justify-center ">
-          <li className="text-center py-2 px-4 hover:bg-violet-300 text-5xl font-bold mb-10 align-items:center">
+        <div className="flex-1 flex flex-col justify-center d-block">
+          <p className="text-center py-2 px-4 hover:bg-violet-300 text-5xl font-bold mb-10 align-items:center">
             <Link to="/exercise">
-              {/* <img src={ExerciseIcon} width="64" height="64" alt="Exercise Icon" style={{flex:"none"}}/> */}
-            <span style={{flex:"none"}}>Move</span>
+              <span className="block"><img src={ExerciseIcon} width="64" height="64" alt="Exercise Icon"/></span>
+              <span className="block">Move</span>
             </Link>
-          </li>
-          <li className="text-center py-2 px-4 hover:bg-violet-300 text-5xl font-bold mb-10"><Link to="/sleep/all">Rest</Link></li>
-          <li className="text-center py-2 px-4 hover:bg-violet-300 text-5xl font-bold mb-10"><Link to="/water">Quench</Link></li>
-        </ul>
+          </p>
+          <p className="text-center py-2 px-4 hover:bg-violet-300 text-5xl font-bold mb-10"><Link to="/sleep/all">Rest</Link></p>
+          <p className="text-center py-2 px-4 hover:bg-violet-300 text-5xl font-bold mb-10"><Link to="/water">Quench</Link></p>
+        </div>
       </div>
       <div className="bg-white flex flex-col w-3/5 dashboard-border">
         <h1 className="text-center text-3xl text-black pt-5 dashboard-font-bold ">Today's Overview</h1>
@@ -62,7 +62,6 @@ function Dashboard() {
               <div className="flex items-center justify-center mt-5 mb-5" >
                 <DonutChart percentage={Math.round(exerciseTime / 60 * 100)} />
               </div>
-              {/* <div className="bg-white rounded-lg overflow-hidden resources-page shadow-md border border-style-solid border-color-rgb-200-185-241 border-width-5p"> */}
               <div className="border-2 border-grey text-purple-500 rounded-lg overflow-hidden shadow-lg hover:bg-violet-300 hover:border-blue-500 hover:text-black">
                 <Link to="/exercise/new">
                   <img src="https://images.unsplash.com/photo-1504025468847-0e438279542c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8ZXhlcmNpc2V8fHx8fHwxNjg0NzcwNjcz&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080" className="card-img-top object-cover w-full h-48" alt="Exercise"/>
@@ -95,7 +94,7 @@ function Dashboard() {
                 <p className="card-title text-center text-2xl">{waterOunce} Ounces</p>
               </div>
               <div className="flex items-center justify-center mt-5 mb-5" >
-                <DonutChart percentage={Math.round(waterOunce / 60 * 100)} />
+                <DonutChart percentage={Math.round(waterOunce / 100 * 100)} />
               </div>
               <div className="border-2 border-grey text-purple-500 rounded-lg overflow-hidden shadow-lg hover:bg-violet-300 hover:border-blue-500 hover:text-black">
                 <Link to="/water/new">
@@ -110,20 +109,20 @@ function Dashboard() {
       <div className="bg-gray-100 flex flex-col w-1/5 dashboard-font-normal">
         <h1 className="text-center text-3xl text-black pt-8 mb-1 dashboard-font-bold">Today's Goals</h1>
         <div className="flex-1 flex flex-col justify-center mb-5">
-          <p className="btn d-block mx-auto mb-1 bg-purple-500 rounded-md text-white pt-7 pb-3 px-4 w-40">
+          <p className="btn d-block mx-auto mb-0.5 bg-purple-500 rounded-md text-white pt-7 pb-3 px-4 w-40">
             <span className="text-left text-4xl block leading-none" style={{lineHeight: '0.2'}}>60</span>
             <span className="text-right text-2xl block leading-none" style={{lineHeight: '0.2'}}>min</span><br/>
-            <span className="text-right text-base block leading-none" style={{lineHeight: '0.2'}}>total exercise</span>
+            <span className="text-right text-sm block leading-none" style={{lineHeight: '0.2'}}>exercise duration</span>
           </p>
-          <p className="btn d-block mx-auto mb-1 bg-purple-500 rounded-md text-white pt-7 pb-3 px-4 w-40">
+          <p className="btn d-block mx-auto mb-0.5 bg-purple-500 rounded-md text-white pt-7 pb-3 px-4 w-40">
             <span className="text-left text-4xl block leading-none" style={{lineHeight: '0.2'}}>8</span>
             <span className="text-right text-2xl block leading-none" style={{lineHeight: '0.2'}}>hours</span><br/>
-            <span className="text-right text-base block leading-none" style={{lineHeight: '0.2'}}>last night sleep</span>
+            <span className="text-right text-sm block leading-none" style={{lineHeight: '0.2'}}>nighttime sleep</span>
           </p>
-          <p className="btn d-block mx-auto mb-1 bg-purple-500 rounded-md text-white pt-7 pb-3 px-4 w-40">
+          <p className="btn d-block mx-auto mb-0.5 bg-purple-500 rounded-md text-white pt-7 pb-3 px-4 w-40">
             <span className="text-left text-4xl block leading-none" style={{lineHeight: '0.2'}}>100</span>
             <span className="text-right text-2xl block leading-none" style={{lineHeight: '0.2'}}>Oz</span><br/>
-            <span className="text-right text-base block leading-none" style={{lineHeight: '0.2'}}>Water</span>
+            <span className="text-right text-sm block leading-none" style={{lineHeight: '0.2'}}>water intake</span>
           </p>
         </div>
         <div className="flex items-center justify-center mt-12" >
