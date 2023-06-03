@@ -12,6 +12,7 @@ function Dashboard() {
   const [sleepTime, setSleepTime] = useState("");
   const [waterOunce, setWaterOunce] = useState("");
 
+
   useEffect (() => {
     const fetchData = async () => {
       if (token) {
@@ -39,13 +40,16 @@ function Dashboard() {
     <div className="flex h-screen dashboard-height">
       <div className="bg-gray-100 flex flex-col w-1/5 dashboard-font-bold">
         <h1 className="text-center text-3xl text-black pt-9 dashboard-font-bold">Dashboard</h1>
-        <div className="flex-1 flex flex-col justify-center d-block">
-          <p className="text-center py-2 px-4 hover:bg-violet-300 text-5xl font-bold mb-10 align-items:center">
-            <Link to="/exercise">
-              <span className="block"><img src={ExerciseIcon} width="64" height="64" alt="Exercise Icon"/></span>
-              <span className="block">Move</span>
+        <div className="flex-1 flex flex-col justify-center mx-auto">
+          <div className="grid place-content-center gap-1 md:grid-cols-2 hover:bg-violet-300 hover:border-blue-500">
+            <Link to="/exercise/new">
+              <div className="hidden md:inline-flex my-10 md:ml-14 w-full justify-center items-center ">
+                  <img src={ExerciseIcon} width="64" height="64" alt="centered image" className="object-center" />
+                  <p className="text-5xl" >Move</p>
+              </div>
             </Link>
-          </p>
+          </div>
+
           <p className="text-center py-2 px-4 hover:bg-violet-300 text-5xl font-bold mb-10"><Link to="/sleep/all">Rest</Link></p>
           <p className="text-center py-2 px-4 hover:bg-violet-300 text-5xl font-bold mb-10"><Link to="/water">Quench</Link></p>
         </div>
