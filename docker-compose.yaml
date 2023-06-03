@@ -7,7 +7,7 @@ services:
       context: mrq
       dockerfile: ./Dockerfile.dev
     ports:
-      - 8000:8000
+      - 8000:80
     volumes:
       - ./mrq:/app
     environment:
