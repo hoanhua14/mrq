@@ -44,7 +44,7 @@ function ExerciseList() {
         const response = await fetch (exerciseurl, fetchConfig);
         if (response.ok) {
             const filterUpdate = exerciseList.filter(function (currentElement) {
-                return currentElement.id != delId;
+                return currentElement.id !== delId;
             })
 
             setExerciseList(filterUpdate)
