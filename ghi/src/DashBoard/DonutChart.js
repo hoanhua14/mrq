@@ -29,7 +29,7 @@ const DonutChart = ({ percentage }) => {
         />
       </svg>
       <div className="absolute inset-0 flex items-center justify-center">
-        <span className="text-6xl font-bold text-green-600 font-sans">{percentage}%</span>
+        <span className="text-6xl font-bold text-purple-500 font-sans">{percentage}%</span>
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import DonutChart from './DonutChart';
 import Calendar from './Calendar';
 import ExerciseIcon from './Exercise-icon.svg';
+import ExerciseList from '../ListExercise';
 
 function Dashboard() {
   const { token } = useToken();
@@ -54,7 +55,11 @@ function Dashboard() {
           <p className="text-center py-2 px-4 hover:bg-violet-300 text-5xl font-bold mb-10"><Link to="/water">Quench</Link></p>
         </div>
       </div>
-      <div className="bg-white flex flex-col w-3/5 dashboard-border">
+      <div className="bg-white flex flex-col w-3/5 pl-3 pr-3 dashboard-border">
+        <h1 className="text-center text-3xl text-black pt-5 pb-5 dashboard-font-bold ">Exercise Log</h1>
+        <ExerciseList />
+      </div>
+      {/* <div className="bg-white flex flex-col w-3/5 dashboard-border">
         <h1 className="text-center text-3xl text-black pt-5 dashboard-font-bold ">Today's Overview</h1>
         <div className="flex-1 flex flex-wrap justify-center items-center">
           <div className="py-3 px-4 w-1/3">
@@ -109,7 +114,7 @@ function Dashboard() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="bg-gray-100 flex flex-col w-1/5 dashboard-font-normal">
         <h1 className="text-center text-3xl text-black pt-8 mb-1 dashboard-font-bold">Today's Goals</h1>
         <div className="flex-1 flex flex-col justify-center mb-5">
