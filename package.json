@@ -4,8 +4,13 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
+<<<<<<< HEAD
     "lottie-web": "^5.12.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+=======
+    "chart.js": "^4.3.0",
+    "react-chartjs-2": "^5.2.0"
+>>>>>>> ed32b6144cbb9771d044f74e7813c83121e503de
   }
 }
