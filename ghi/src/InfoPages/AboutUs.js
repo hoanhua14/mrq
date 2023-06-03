@@ -48,19 +48,22 @@ function AboutUs() {
     <div className="'2xl':container mx-auto">
       <section className="relative bg-[url(https://i.imgur.com/VK0GCzK.png)] bg-cover bg-center bg-no-repeat flex-grow">
         <div className="absolute inset-0 bg-white/75 sm:bg-transparent sm:from-white/95 sm:to-white/25 ltr:sm:bg-gradient-to-r rtl:sm:bg-gradient-to-l"></div>
-        <div className="relative max-w-screen-xl mx-auto px-4 py-32 lg:flex lg:h-screen lg:items-center lg:px-15">
-          <h2 className="text-3xl font-extrabold text-rose-600 sm:text-5xl">
-            Meet the Team
-          </h2>
+        <div className="flex justify-center pt-20">
+          <h1 className="block font-extrabold text-black text-7xl">The Creators</h1>
+        </div>
+        <div className="flex justify-center pt-20">
+          <h2 className="block font-bold text-rose-600 text-3xl italic">Meet the team at MRQ, a group of developers passionate about self-care because health is wealth.</h2>
+        </div>
+        <div className="relative max-w-screen-xl mx-auto px-4 py-32 lg:h-screen lg:items-center lg:px-15">
           <div className="grid grid-cols-2 gap-12 mt-8 sm:grid-cols-4">
             {people.map((person, index) => (
               <div key={index} className="flex flex-col items-center">
                 <img
-                  className="drop-shadow-xl h-40 w-40 rounded-xl object-cover"
+                  className="shadow-md shadow-rose-300 h-40 w-40 rounded-xl object-cover border"
                   src={person.imageUrl}
                   alt={person.name}
                 />
-                <h3 className="mt-4 text-lg font-bold text-black">
+                <h3 className="mt-4 text-xl font-bold text-rose-600">
                   {person.name}
                 </h3>
                 <p className="mt-1 font-semibold text-md text-gray-400">{person.role}</p>

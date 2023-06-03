@@ -3,6 +3,8 @@ import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import useUser from "./useUser";
+import StyledButton from './ReactComponents/button';
+
 
 const Nav = () => {
     const { token, logout } = useToken();
@@ -49,10 +51,19 @@ const Nav = () => {
                 <div className='absolute top-0 right-0'>
                   {user ? (
                       <div className="font-bold">
-                          Good to see you, {user.first}
-                          <div></div>
-                          <button onClick={handleLogout}>Sign out?</button>
-                          <NavLink to="/dashboard">Goals</NavLink>
+                        <span style={{ marginRight: '0.5rem' }}>Good to see you, {user.first}</span>
+                          <StyledButton text="Sign Out" onClick={handleLogout}>Sign out?</StyledButton>
+                          <NavLink
+                          className="group relative inline-block focus:outline-none focus:ring"
+                            to="/dashboard">
+                            <span
+                              className="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-yellow-300 transition-transform group-hover:translate-y-0 group-hover:translate-x-0"
+                            ></span>
+                            <span
+                              className="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest text-black group-active:text-opacity-75"
+                            >Goals
+                            </span>
+                          </NavLink>
                       </div>
                   ) : (
                       <>

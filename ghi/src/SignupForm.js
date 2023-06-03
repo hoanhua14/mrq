@@ -131,6 +131,7 @@ const SignupForm = () => {
                 placeholder="Age"
                 required
                 type="number"
+                min="0"
                 name="age"
                 id="age"
                 className="form-input"
