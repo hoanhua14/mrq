@@ -39,7 +39,7 @@ export default function SleepList() {
     const response = await fetch (sleepUrl, fetchConfig);
     if (response.ok) {
         const updateList = sleeps.filter(function (currentElement) {
-            return currentElement.id != deleteID;
+            return currentElement.id !== deleteID;
         })
         setSleeps(updateList);
     }

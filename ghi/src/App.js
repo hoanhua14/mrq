@@ -19,9 +19,12 @@ import ExerciseList from "./ListExercise";
 
 
 function App() {
+  const domain = /https:\/\/[^/]+/;
+  const basename = process.env.PUBLIC_URL.replace(domain, '');
+
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <AuthProvider baseUrl={process.env.REACT_APP_MRQ_SERVICE}>
         <Nav />
         <div >

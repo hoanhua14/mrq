@@ -10,7 +10,6 @@ class MyAuthenticator(Authenticator):
         email: str,
         accounts: AccountQueries,
     ):
-
         # Use your repo to get the account based on the
         # username (which could be an email)
         return accounts.get(email)

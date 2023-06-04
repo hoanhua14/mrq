@@ -1,10 +1,22 @@
+## Week 16, friday 6/2
+-today we were able to deploy database, backend, and frontend. We did have some troubles identifying the right thing to put in the command but everything works eventually. I was hopping in and out during the process because I was also working on making my unit test that is a bit diffrent than what was in the lecture. We got the front end deployed but upon testing the functionality, there are errors in the console when i tried signing up and log in. planning to work on that on monday when we get back.
+
+## Week 16, thursday 6/1
+-today our team started working on deployment while one of us took care of having some charts showed up on the dashboard. The process were not too bad but we did run into an issue: after having the database deployed, we tried to deploy the image but then the database deployment does not show up when running the list command.
+- As for me, I got the problem from yesterday resolved using Rosheen's guidance on hmu, had to install and run a couple more commands and i got the token working.
 
 ## Week 16, wednesday 5/31
 - finished styling log in and sign up form
+- today I tried writing a unit test for a protected endpoints using a fake id of a fake account. I got a 422 error unprocessible entity.
+- Went over the materials for CD. I couldn't get the token to show up and when i tried logging in, got an error saying no directory.
+- added a few things on signup and login form styling.
 
 ## Week 16, tuesday 5/30
 - today i finished styling 3 create and list forms of all categories. I ran into an issue which I thought would be css-related but turned out I was passing in the wrong object.
 - styled the greeting and started on sleep stretch goals
+
+
+
 
 ## Week 15, wednesday 5/24
 - Pulled and merged front end auth

@@ -21,9 +21,15 @@ const Nav = () => {
     <nav className="py-4"
     style={{ backgroundColor: '#c5f2e6' }}>
       <div className="max-w-6xl mx-auto flex justify-between items-center px-4">
-        <div className="text-black font-bold text-lg">Logo</div>
+        <div className='absolute left-4'>
+          <img
+          src="https://i.imgur.com/Qfkb7jJ.png"
+          alt="Logo"
+          style={{ width: '2cm', height: '2cm' }}
+           />
+        </div>
         <div className="flex justify-center flex-grow">
-            <div className="flex space-x-6">
+            <div className="flex justify-between w-1/2">
                 <NavLink
                 to="/"
                 className="text-black hover:scale-110 hover:text-gray-500 transition-all duration-300 ease-in-out font-bold uppercase"
@@ -48,9 +54,9 @@ const Nav = () => {
                 >
                 Resources
                 </NavLink>
-                <div className='absolute top-0 right-0'>
+                <div >
                   {user ? (
-                      <div className="font-bold">
+                      <div className="font-bold absolute top-0 right-0">
                         <span style={{ marginRight: '0.5rem' }}>Good to see you, {user.first}</span>
                           <StyledButton text="Sign Out" onClick={handleLogout}>Sign out?</StyledButton>
                           <NavLink
@@ -66,10 +72,11 @@ const Nav = () => {
                           </NavLink>
                       </div>
                   ) : (
-                      <>
+                      <div className="absolute top-0 right-5">
                           <NavLink
                             className="group relative inline-block focus:outline-none focus:ring"
                             to="/login"
+                            style={{ marginRight: '10px' }}
                           >
                             <span
                               className="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-yellow-300 transition-transform group-hover:translate-y-0 group-hover:translate-x-0"
@@ -95,7 +102,7 @@ const Nav = () => {
                               Sign Up
                             </span>
                           </NavLink>
-                      </>
+                      </div>
                   )}
                 </div>
             </div>

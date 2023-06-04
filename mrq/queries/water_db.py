@@ -7,16 +7,19 @@ from queries.pool import pool
 class Error(BaseModel):
     message: str
 
+
 class WaterIn(BaseModel):
     # user_id: int
     ounces: int
     date: date
+
 
 class WaterOut(BaseModel):
     id: int
     user_id: int
     ounces: int
     date: date
+
 
 class WaterRepository:
     def get_one_water_id(self, id: int) -> Optional[WaterOut]:
@@ -32,7 +35,7 @@ class WaterRepository:
                         FROM water
                         WHERE id = %s
                         """,
-                        [id]
+                        [id],
                     )
                     record = result.fetchone()
                     if record is None:
@@ -56,17 +59,15 @@ class WaterRepository:
                         WHERE user_id = %s
                         ORDER BY date;
                         """,
-                        [user_id]
+                        [user_id],
                     )
 
                     return [
-                        self.record_to_water_out(record)
-                        for record in result
+                        self.record_to_water_out(record) for record in result
                     ]
         except Exception as e:
             print(e)
             return {"message": "Could not get all Water data"}
-
 
     def get_all_by_date(self, user_id, date) -> Union[Error, List[WaterOut]]:
         try:
@@ -82,12 +83,11 @@ class WaterRepository:
                         WHERE user_id = %s AND date = %s
                         ORDER BY date;
                         """,
-                        [user_id, date]
+                        [user_id, date],
                     )
 
                     return [
-                        self.record_to_water_out(record)
-                        for record in result
+                        self.record_to_water_out(record) for record in result
                     ]
         except Exception as e:
             print(e)
@@ -96,7 +96,7 @@ class WaterRepository:
     def create(self, user_id, water: WaterIn) -> Union[WaterOut, Error]:
         try:
             with pool.connection() as conn:
-                 with conn.cursor() as db:
+                with conn.cursor() as db:
                     result = db.execute(
                         """
                         INSERT INTO water
@@ -105,11 +105,7 @@ class WaterRepository:
                             (%s, %s, %s)
                         RETURNING id;
                         """,
-                        [
-                            user_id,
-                            water.ounces,
-                            water.date
-                        ]
+                        [user_id, water.ounces, water.date],
                     )
                     id = result.fetchone()[0]
                     return self.water_in_to_out(id, user_id, water)
@@ -126,8 +122,7 @@ class WaterRepository:
                         WHERE id = %s
                         AND user_id = %s
                         """,
-                        [   id,
-                            user_id]
+                        [id, user_id],
                     )
                     return result.rowcount > 0
         except Exception as e:

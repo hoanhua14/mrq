@@ -27,7 +27,7 @@ const LoginForm = () => {
         else if(!token && loginattempt){
             setLoginAttempt(true)
         }
-    }, [token, loginattempt]);
+    }, [token, loginattempt, navigate]);
 
     return (
 <div className=" py-8" style={{ backgroundColor: '#e7f9f4'}}>
