@@ -1,7 +1,6 @@
 from fastapi.testclient import TestClient
 from main import app
-from pydantic import BaseModel, Field
-from datetime import date
+from pydantic import BaseModel
 from authenticator import authenticator
 from queries.sleep import SleepRepository
 
