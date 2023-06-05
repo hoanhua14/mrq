@@ -6,6 +6,7 @@ import Overview from './Overview';
 import ExerciseList from '../ListExercise';
 import SleepList from '../Sleep/SleepList';
 import WaterList from '../Water/ListWater';
+import useGoal from "../hooks/useGoal";
 
 
 function Dashboard() {
@@ -13,6 +14,7 @@ function Dashboard() {
   const [exerciseListVisible, setExerciseListVisible] = useState(false);
   const [sleepListVisible, setSleepListVisible] = useState(false);
   const [waterListVisible, setWaterListVisible] = useState(false);
+  const {eGoal, sGoal, wGoal} = useGoal();
 
 
   const handleOverviewClick = () => {
@@ -42,7 +44,7 @@ function Dashboard() {
     setSleepListVisible(false);
     setWaterListVisible(true);
   };
-
+  console.log("egoal", eGoal)
 
 
   return (
@@ -95,17 +97,17 @@ function Dashboard() {
         <h1 className="text-center text-3xl text-black pt-8 mb-1 dashboard-font-bold">Today's Goals</h1>
         <div className="flex-1 flex flex-col justify-center mb-5">
           <p className="btn d-block mx-auto mb-0.5 bg-purple-500 rounded-md text-white pt-7 pb-3 px-4 w-40">
-            <span className="text-left text-4xl block leading-none" style={{lineHeight: '0.2'}}>60</span>
+            <span className="text-left text-4xl block leading-none" style={{lineHeight: '0.2'}}>{eGoal}</span>
             <span className="text-right text-2xl block leading-none" style={{lineHeight: '0.2'}}>min</span><br/>
             <span className="text-right text-sm block leading-none" style={{lineHeight: '0.2'}}>exercise duration</span>
           </p>
           <p className="btn d-block mx-auto mb-0.5 bg-purple-500 rounded-md text-white pt-7 pb-3 px-4 w-40">
-            <span className="text-left text-4xl block leading-none" style={{lineHeight: '0.2'}}>8</span>
+            <span className="text-left text-4xl block leading-none" style={{lineHeight: '0.2'}}>{sGoal}</span>
             <span className="text-right text-2xl block leading-none" style={{lineHeight: '0.2'}}>hours</span><br/>
             <span className="text-right text-sm block leading-none" style={{lineHeight: '0.2'}}>nighttime sleep</span>
           </p>
           <p className="btn d-block mx-auto mb-0.5 bg-purple-500 rounded-md text-white pt-7 pb-3 px-4 w-40">
-            <span className="text-left text-4xl block leading-none" style={{lineHeight: '0.2'}}>100</span>
+            <span className="text-left text-4xl block leading-none" style={{lineHeight: '0.2'}}>{wGoal}</span>
             <span className="text-right text-2xl block leading-none" style={{lineHeight: '0.2'}}>Oz</span><br/>
             <span className="text-right text-sm block leading-none" style={{lineHeight: '0.2'}}>water intake</span>
           </p>
@@ -115,6 +117,7 @@ function Dashboard() {
         </div>
       </div>
     </div>
+    {console.log(eGoal)}
     </>
   );
 }

@@ -15,6 +15,7 @@ import SleepForm from "./Sleep/SleepForm";
 import SleepList from "./Sleep/SleepList";
 import ExerciseForm from "./ExerciseForm";
 import ExerciseList from "./ListExercise";
+import GoalsForm from "./SetGoalsForm";
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
             <Route path="/exercise" element={<ExerciseList/>}/>
             <Route path="/sleep/new" element={<SleepForm />}/>
             <Route path="/sleep/all" element={<SleepList />}/>
+            <Route path="/goals" element={<GoalsForm />}/>
           </Routes>
         </div>
         </AuthProvider>
