@@ -18,19 +18,21 @@ class AccountOut(BaseModel):
 
 
 def fake_get_current_account_data():
-     return AccountOut(
+    return AccountOut(
         id=1,
         first="Emma",
         last="Stone",
         email="EmmaStone@gmail.com",
         age=34,
         gender="Female",
-        race="White"
+        race="White",
     )
 
 
 def test_get_all_accounts():
-    app.dependency_overrides[authenticator.get_current_account_data] = fake_get_current_account_data
+    app.dependency_overrides[
+        authenticator.get_current_account_data
+    ] = fake_get_current_account_data
     response = client.get("/api/accounts")
     app.dependency_overrides = {}
     assert response.status_code == 200
