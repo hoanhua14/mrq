@@ -31,6 +31,8 @@ build-mrq-service-image:
   only:
     - main
 #
+
+# # Uncomment this during the unit test creation
 # # Run the unit tests
 # api-unit-tests-job:
 #   image: python:3-bullseye
