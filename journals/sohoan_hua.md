@@ -1,3 +1,6 @@
+## Week 16, saturday + sunday 6/3 and 6/4
+- this weekend, I created a form for user to set goals for sleep, exercise, and water. At first, I wanted to have goals set in "/goals" and create a custom hook to change the state of goals in dashboard without having to save it back to database. However, after having writen the custom hook useGoal, I realize that whenever i navigate to another page, all goals would be reset. After reconsidering some aspects, I think it would make more sense to have goals saved to database after the user sets it and subsequently, states in the dashboard would be updated to the newly set value as well. Based on how the database is currently set, I think it will work by adding a goal field in each of the category.
+
 ## Week 16, friday 6/2
 -today we were able to deploy database, backend, and frontend. We did have some troubles identifying the right thing to put in the command but everything works eventually. I was hopping in and out during the process because I was also working on making my unit test that is a bit diffrent than what was in the lecture. We got the front end deployed but upon testing the functionality, there are errors in the console when i tried signing up and log in. planning to work on that on monday when we get back.
 
