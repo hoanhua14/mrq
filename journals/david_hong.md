@@ -7,6 +7,9 @@ What I accomplished today:
 As a group, we formulated our migrations table and came up with a total of 4 tables: accounts, exercise, sleep, and water. The idea is that each account has its own exercise, sleep, and water logs and they need to be unique to that account. So, each account that has its own id, has its own exercise, sleep, and water logs which can be traced back to that account because we put a user_id value of that account into each table.
 
 
+As a group, we formulated our migrations table and came up with a total of 4 tables: accounts, exercise, sleep, and water. The idea is that each account has its own exercise, sleep, and water logs and they need to be unique to that account. So, each account that has its own id, has its own exercise, sleep, and water logs which can be traced back to that account because we put a user_id value of that account into each table.
+
+
 ## May 17, 2023 (W)
 
 What I accomplished today:
@@ -23,6 +26,7 @@ What I accomplished today:
     * Added the login form to App.js and Nav.js
 
 The login form itself isn't a long form, but I wasn't sure how to incorporate the auth for it, so for now I just set up the backbone of what it should look like. Instead of logging in with a username, we made it so that we login using an email, which is a bit different than the examples that the instructors showed us.
+The login form itself isn't a long form, but I wasn't sure how to incorporate the auth for it, so for now I just set up the backbone of what it should look like. Instead of logging in with a username, we made it so that we login using an email, which is a bit different than the examples that the instructors showed us.
 
 ## May 20, 2023 (Sa)
 What I accomplished today:
@@ -32,8 +36,15 @@ What I accomplished today:
 I was pretty stuck today as I was Was getting an unprocessable entity console error when logging in.
 
 
+I was pretty stuck today as I was Was getting an unprocessable entity console error when logging in.
+
+
 ## May 21, 2023 (Su)
 What I accomplished today:
+* Started to work on the SignUpForm.js
+
+I started working on the SignUpForm.js today which is more exhaustive than the LoginForm since there's a lot more information for a user to fill out in order to create an account. I was getting the same problem as I was in the LoginForm.js as in the browser console would throw me an unprocessable entity error and I could not figure out why. On a positive note, on our dropdown for race and gender, I can see all the options we put in our account migration table.
+
 * Started to work on the SignUpForm.js
 
 I started working on the SignUpForm.js today which is more exhaustive than the LoginForm since there's a lot more information for a user to fill out in order to create an account. I was getting the same problem as I was in the LoginForm.js as in the browser console would throw me an unprocessable entity error and I could not figure out why. On a positive note, on our dropdown for race and gender, I can see all the options we put in our account migration table.
@@ -113,11 +124,45 @@ What I accomplished today:
 * Fixed formatting of signout and goal buttons and the greeting
 * "Completed" project deployment with my group
 
-I completed my unit test. It helped to follow the format that the exploration showed us. It's odd though because mine and Nicole's test pass in the MRQ Docker terminal, but in the terminal itself, they don't pass. I also fixed formatting of the logout and goals buttons when a user is logged in. Instead of the plain old text buttons, I incorporated the button design that So Hoan made for the other forms. So now, those buttons fit the overall theme a lot better now. We noticed Rosheen's reply to Esra's HMU post about the unprocessable entity, and that we should try removing the -m flag in one of the deployment terminal commands. We were able to move onto frontend deployment, which was a lot more straight forward than the backend/database deployment. After going through the steps and finishing frontend deployment, we got our gitlab pages link in our project page on gitlab and are able to view it from there! The only problem, however, is when we try to sign up for an account, we get a plethora of errors such as "Failed to load resource...", "SyntaxError", "Access to fetch at ... CORS policy...", and "TypeError". Although the signup form is an older version of what I have on my local branch right now, it should still be functional considering it's on main in our GitLab repo.
+I completed my unit test. It helped to follow the format that the exploration showed us. It's odd though because mine and Nicole's test pass in the MRQ Docker terminal, but in the terminal itself, they don't pass. I also fixed formatting of the logout and goals buttons when a user is logged in. Instead of the plain old text buttons, I incorporated the button design that So Hoan made for the other forms. So now, those buttons fit the overall theme a lot better now. We noticed Rosheen's reply to someone's HMU post about the unprocessable entity, and that we should try removing the -m flag in one of the deployment terminal commands. We were able to move onto frontend deployment, which was a lot more straight forward than the backend/database deployment. After going through the steps and finishing frontend deployment, we got our gitlab pages link in our project page on gitlab and are able to view it from there! The only problem, however, is when we try to sign up for an account, we get a plethora of errors such as "Failed to load resource...", "SyntaxError", "Access to fetch at ... CORS policy...", and "TypeError". Although the signup form is an older version of what I have on my local branch right now, it should still be functional considering it's on main in our GitLab repo.
 
-## June 3, 2023 (S)
+
+## June 4, 2023 (Su)
 
 What I accomplished today:
 * I completed the features page to show what our project is about and what visitors should expect to see when they sign up and use our app
 
 To make the features page, I used the About Us page I made as a template with some minor changes to make. I put in placeholder images for now because we're going to replace those images with screenshots of the 3 features of our app (sleep, water, exercise). The purpose of the features page is to give visitors a little sneak peek of what they can expect our app to look like when they use its features.
+
+
+## June 5, 2023 (M)
+
+What I accomplished today:
+* Completed a hefty MR today and got it approved
+* Tried to get unit tests to pass in Windows powershell despite already passing in our service's Docker container
+* Completed another feature on the sign up form for password requirements
+
+The MR that got sent in included the About Us page, Features page, the updated SignUpForm.js, and the updated Nav.js. Whenever I tried running ```python -m pytest``` in powershell, it threw a ModuleNotFoundError regarding "httpx" so I installed it, but then it threw another ModuleNotFoundError for "main" which left me confused. Our tests all pass in our Docker container's terminal which is all that matters but I couldn't resolve it in the powershell which was disappointing. For the sign up form, I added another feature in which I put in password requirements (minimum 8 characters, 1 capital letter, 1 number, and a special character). I did it really similarly to when I added matching password validation. I created another state variable set to true as default, but if the requirements aren't met, then it'd be set to false and throw a little alert pop up message. The problem I'm having right now is that the message doesn't disappear (same as for passwords not matching), unless the page is refreshed. Another thing I want to upgrade for the password requirements is adding in live requirements, where the requirements are listed, and if they are fulfilled they are "check-marked" off live.
+
+
+## June 6, 2023 (T)
+
+What I accomplished today:
+
+
+
+## June 7, 2023 (W)
+
+What I accomplished today:
+
+
+
+## June 8, 2023 (Tr)
+
+What I accomplished today:
+
+
+
+## June 9, 2023 (F)
+
+What I accomplished today:

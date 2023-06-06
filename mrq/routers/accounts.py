@@ -93,15 +93,3 @@ def get_one_account(
         response.status_code = 404
     print(account)
     return account
-
-
-# @router.delete("/api/accounts/{id}", response_model=bool)
-# def delete_account(
-#     id: int,
-#     repo: AccountQueries = Depends(),
-#     account_data: dict = Depends(authenticator.get_current_account_data)
-# ) -> bool:
-#     if account_data[id] == id:
-#         return repo.delete(id)
-#     else:
-#         return False

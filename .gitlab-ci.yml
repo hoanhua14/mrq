@@ -40,7 +40,7 @@ build-mrq-service-image:
 #   needs:
 #     - lint-test-job
 #   script:
-#     - cd sample_service
+#     - cd mrq
 #     - pip install -r requirements.txt
 #     - python -m pytest
 

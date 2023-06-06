@@ -2,6 +2,7 @@ from fastapi.testclient import TestClient
 from pydantic import BaseModel
 from main import app
 from authenticator import authenticator
+from queries.accounts import AccountQueries
 
 
 client = TestClient(app)
@@ -18,7 +19,7 @@ class AccountOut(BaseModel):
 
 
 def fake_get_current_account_data():
-    return AccountOut(
+    account = AccountOut(
         id=1,
         first="Emma",
         last="Stone",
@@ -27,9 +28,16 @@ def fake_get_current_account_data():
         gender="Female",
         race="White",
     )
+    return account.__dict__
+
+
+class EmptyAccountQuery:
+    def get_all(self):
+        return []
 
 
 def test_get_all_accounts():
+    app.dependency_overrides[AccountQueries] = EmptyAccountQuery
     app.dependency_overrides[
         authenticator.get_current_account_data
     ] = fake_get_current_account_data
