@@ -24,7 +24,7 @@ const features = [
 function AboutUs() {
   return (
     <div className="'2xl':container mx-auto">
-      <section className="relative bg-[url(https://i.imgur.com/VK0GCzK.png)] bg-cover bg-center bg-no-repeat flex-grow">
+      <section className="relative bg-[url(https://i.imgur.com/6tXuiW2.png)] bg-cover bg-center bg-no-repeat flex-grow">
         <div className="absolute inset-0 bg-white/75 sm:bg-transparent sm:from-white/95 sm:to-white/25 ltr:sm:bg-gradient-to-r rtl:sm:bg-gradient-to-l"></div>
         <div className="flex justify-center pt-20">
           <h1 className="block font-extrabold text-black text-7xl">Exercise, Sleep, and Water Management</h1>
