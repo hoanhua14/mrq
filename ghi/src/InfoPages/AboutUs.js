@@ -9,7 +9,7 @@ const people = [
     linkedin: 'https://www.linkedin.com/in/hoanhua/',
     linkedinlogo: 'https://www.svgrepo.com/download/922/linkedin.svg',
     imageUrl:
-      "https://occ-0-1007-2433.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABYxJFBDckfZw1YUEIPwyuIg43Kw_HUBLvnCcgdOlvvf5Nc90SF3HSAi5L8uLyBqjziKBY-kGD2wu2JAqVsdHVR0frb6qG26I_U5v.jpg?r=77f"
+      "https://ca.slack-edge.com/T047XGQ15B6-U04HNQDFNK0-4ece0fcf39d4-512"
   },
   {
     name: 'Nicole Kash',
@@ -19,7 +19,7 @@ const people = [
     linkedin: 'https://www.linkedin.com/in/nicole-kash/',
     linkedinlogo: 'https://www.svgrepo.com/download/922/linkedin.svg',
     imageUrl:
-      "https://occ-0-1007-2433.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABYxJFBDckfZw1YUEIPwyuIg43Kw_HUBLvnCcgdOlvvf5Nc90SF3HSAi5L8uLyBqjziKBY-kGD2wu2JAqVsdHVR0frb6qG26I_U5v.jpg?r=77f"
+      "https://ca.slack-edge.com/T047XGQ15B6-U04KPKH8V2B-97deea11640d-512"
   },
   {
     name: 'Bran Tai',
@@ -29,7 +29,7 @@ const people = [
     linkedin: 'https://www.linkedin.com',
     linkedinlogo: 'https://www.svgrepo.com/download/922/linkedin.svg',
     imageUrl:
-      "https://occ-0-1007-2433.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABYxJFBDckfZw1YUEIPwyuIg43Kw_HUBLvnCcgdOlvvf5Nc90SF3HSAi5L8uLyBqjziKBY-kGD2wu2JAqVsdHVR0frb6qG26I_U5v.jpg?r=77f"
+      "https://ca.slack-edge.com/T047XGQ15B6-U04H2U0U079-0cdca1478a63-512"
   },
   {
     name: 'David Hong',
@@ -39,21 +39,22 @@ const people = [
     linkedin: 'https://www.linkedin.com/in/davidhong-paca/',
     linkedinlogo: 'https://www.svgrepo.com/download/922/linkedin.svg',
     imageUrl:
-      "https://occ-0-1007-2433.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABYxJFBDckfZw1YUEIPwyuIg43Kw_HUBLvnCcgdOlvvf5Nc90SF3HSAi5L8uLyBqjziKBY-kGD2wu2JAqVsdHVR0frb6qG26I_U5v.jpg?r=77f"
+      "https://ca.slack-edge.com/T047XGQ15B6-U04H2U2FZ0X-f488ac2a98ce-512"
   },
 ];
 
 function AboutUs() {
   return (
     <div className="'2xl':container mx-auto">
-      <section className="relative bg-[url(https://i.imgur.com/VK0GCzK.png)] bg-cover bg-center bg-no-repeat flex-grow">
+      <section className="relative bg-[url(https://i.imgur.com/JTnf8w6.png)] bg-cover bg-center bg-no-repeat flex-grow">
         <div className="absolute inset-0 bg-white/75 sm:bg-transparent sm:from-white/95 sm:to-white/25 ltr:sm:bg-gradient-to-r rtl:sm:bg-gradient-to-l"></div>
         <div className="flex justify-center pt-20">
           <h1 className="block font-extrabold text-black text-7xl">The Creators</h1>
         </div>
         <div className="flex justify-center pt-20">
-          <h2 className="block font-bold text-rose-600 text-3xl italic">Meet the team at MRQ, a group of developers passionate about self-care because health is wealth.</h2>
+          <h2 className="block font-bold text-3xl italic" style={{ color: '#dd8709' }}>Meet the team at MRQ!</h2>
         </div>
+        <div className=" flex justify-center pt-20 block font-bold text-3xl italic" style={{ color: '#dd8709' }}> A group of developers passionate about self-care because health is wealth. </div>
         <div className="relative max-w-screen-xl mx-auto px-4 py-32 lg:h-screen lg:items-center lg:px-15">
           <div className="grid grid-cols-2 gap-12 mt-8 sm:grid-cols-4">
             {people.map((person, index) => (
@@ -63,7 +64,7 @@ function AboutUs() {
                   src={person.imageUrl}
                   alt={person.name}
                 />
-                <h3 className="mt-4 text-xl font-bold text-rose-600">
+                <h3 className="mt-4 text-xl font-bold" style={{ color: '#bb6f00' }}>
                   {person.name}
                 </h3>
                 <p className="mt-1 font-semibold text-md text-gray-400">{person.role}</p>

@@ -21,7 +21,7 @@ const Nav = () => {
     <nav className="py-4"
     style={{ backgroundColor: '#c5f2e6' }}>
       <div className="max-w-6xl mx-auto flex justify-between items-center px-4">
-        <div className='absolute left-4'>
+        <div className='absolute left-4 animate-bounce'>
           <img
           src="https://i.imgur.com/Qfkb7jJ.png"
           alt="Logo"
