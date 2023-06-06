@@ -5,6 +5,13 @@ RUN chmod +x /wait
 WORKDIR /deps
 COPY requirements.txt requirements.txt
 RUN python -m pip install -r requirements.txt
+
+# Added command to install node.js and npm
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - && apt-get install -y nodejs
+
+# Added commands to install chart.js and react-chartjs-2
+RUN npm install chart.js react-chartjs-2
+
 WORKDIR /app
 # CMD /wait && uvicorn main:app --reload --host 0.0.0.0
 
