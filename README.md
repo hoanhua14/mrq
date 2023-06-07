@@ -1,142 +1,183 @@
-# Module3 Project Gamma
+# Move. Rest. Quench. (MRQ)
 
-## Getting started
+Team:
 
-You have a project repository, now what? The next section
-lists all of the deliverables that are due at the end of the
-week. Below is some guidance for getting started on the
-tasks for this week.
+- Nicole Kash
+- SoHoan Hua
+- Bran Tai
+- David Hong
 
-## Install Extensions
+## Wireframe
+(Insert screenshot here)
 
-- Prettier: <https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode>
-- Black Formatter: <https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter>
+## Intended Market
+MRQ targets consumers in the fitness and wellbeing market who are looking to track their health related data without emphasis on calories or weight. With a focus on water intake, exercise minutes, and hours of sleep, the consumer can track their health related goals while maintaining a healthy relationship with food.
 
-## Deliverables
+## How to run MRQ
+1. Fork the project at https://gitlab.com/mrq1/move-rest-quench and clone via HTTPS on your machine.
+2. CD into the new project directory and run the following commands in your terminal in order:
 
-- [ ] Wire-frame diagrams
-- [ ] API documentation
-- [ ] Project is deployed to Caprover (BE, DB) & GitLab-pages (FE)
-- [ ] GitLab issue board is setup and in use (or project management tool of choice)
-- [ ] Journals
+   - docker volume create postgres-data
+   - docker-compose build
+   - docker-compose up
+3. Make sure all containers are running and allow time for the React server to start.
+4. Navigate to the homepage at http://localhost:3000 and click the "Sign Up" button in the navigation bar.
 
-## Project layout
+## Functionality
+- Users can sign up for an account via the "Get Started" button on the homepage banner or the "Sign Up" button in the navigation bar.
+- Users can log out via the "Sign Out" button on the navigation bar.
+- Users who already have an account can log in via the "Log In" button on the navigation bar.
+- Users can access their personalized dashboard displaying daily goals provided by MRQ based on general recommendations for daily sleep, water, and exercise via the "Dashboard" button on the navigation bar.
+- User's can view a daily overview including three progress charts on their dashboard with a percentage representing their progress toward the exercise, water, and sleep goals. The % on the progress charts represent a sum of exercise entries for today, water entries for today, and sleep entries for last night (yesterday).
+- Users can click the "Add a log" button for exercise to record an exercise session. If the session is logged for today, the user will see their progress chart reflect the new entry.
+- Users can click the "Add a log" button for water to record water intake. If the session is logged for today, the user will see their progress chart reflect the new entry.
+- Users can click the "Add a log" button for sleep to record a sleep session. If the session is logged for last night (yesterday), the user will see their progress chart reflect the new entry.
+- Users can click the "Move" link in the dashboard to see a list of all of their exercise entries. They can delete exercise entries from the list.
+- Users can click the "Rest" link in the dashboard to see a list of all of their sleep entries. They can delete sleep entries from the list.
+- Users can click the "Quench" link in the dashboard to see a list of all of their water entries. They can delete water entries from the list.
+- Users can click the "Overview" link in the dashboard to return to today's overview displaying goals and progress charts.
 
-The layout of the project is just like all of the projects
-you did with `docker-compose` in module #2. You will create
-a directory in the root of the repository for each service
-that you add to your project just like those previous
-projects were setup.
 
-### Directories
+## Data Model - SQL Tables
 
-Several directories have been added to your project. The
-directories `docs` and `journals` are places for you and
-your team-mates to, respectively, put any documentation
-about your project that you create and to put your
-project-journal entries. See the _README.md_ file in each
-directory for more info.
+### User Table
+The options for gender include "Male", "Female", "None of the above", or "Do not want to share". \
+The options for race include "Asian", "White", "Black or African American", "Hispanic", "American Indian or Alaskan Native", "Native Hawaiian", or "Other".
+| name              | Type | Unique| Optional |
+| ------------------------- | ------ | -------------------------------------------- | ------- |
+| id             | serial    | yes    | no |
+| first             | varchar    | no    | no |
+| last             | varchar    | no    | no |
+| hashed_password             | varchar    | no    | no |
+| email             | varchar    | yes    | no |
+| age             | smallint    | no    | no |
+| gender             | text    | no    | no |
+| race             | text    | no    | no |
 
-The other directories, `ghi` and `sample_service`, are
-sample services, that you can start building off of or use
-as a reference point.
+### Exercise Table
+The options for category include "Run", "Swim", or "Walk".
+| name              | Type | Unique| Optional |
+| ------------------------- | ------ | -------------------------------------------- | ------- |
+| id             | serial    | yes    | no |
+| user_id             | integer    | no    | no |
+| minutes           | smallint    | no    | no |
+| date             | date    | no    | no |
+| category             | text    | no    | no |
 
-Inside of `ghi` is a minimal React app that has an "under
-construction" page. It is setup similarly to all of the
-other React projects that you have worked on.
+### Sleep Table
+(insert sleep table here)
 
-Inside of `sample_service` is a minimal FastAPI application.
-"Where are all the files?" you might ask? Well, the
-`main.py` file is the whole thing, and go take look inside
-of it... There's not even much in there..., hmm? That is
-FastAPI, we'll learn more about it in the coming days. Can
-you figure out what this little web-application does even
-though you haven't learned about FastAPI yet?
+### Water Table
+(insert water table here)
 
-Also in `sample_service` is a directory for your migrations.
-If you choose to use PostgreSQL, then you'll want to use
-migrations to control your database. Unlike Django, where
-migrations were automatically created for you, you'll write
-yours by hand using DDL. Don't worry about not knowing what
-DDL means; we have you covered. There's a sample migration
-in there that creates two tables so you can see what they
-look like.
+## GHI (Graphical Human Interface)
+### Home Page
+This is the first page users will see when they visit the website.
+(Insert screenshot)
+### Dashboard
+The dashboard is personalized to the user and displays progress toward the exercise, water, and sleep goals. There is a chart for the three categories so users can see today's progress at a glance.
+(Insert screenshot)
+### Exercise List
+The exercise list is personalized to the user and lists all of their exercise entries for all dates. A user is able to delete entries from this view.
+(Insert screenshot)
+### Sleep List
+The sleep list is personalized to the user and lists all of their sleep entries for all dates. A user is able to delete entries from this view.
+(Insert screenshot)
+### Water List
+The water list is personalized to the user and lists all of their water entries for all dates. A user is able to delete entries from this view.
+(Insert screenshot)
+### Resources page
+Some info about resources page
+(Insert screenshot)
+### About us page
+Some info about About us page
+(Insert screenshot)
+### Features Page
+Some info about features page
+(Insert screenshot)
 
-The sample Dockerfile and Dockerfile.dev run your migrations
-for you automatically.
 
-### Other files
 
-The following project files have been created as a minimal
-starting point. Please follow the guidance for each one for
-a most successful project.
+## FastAPI Endpoints
 
-- `docker-compose.yaml`: there isn't much in here, just a
-  **really** simple UI and FastAPI service. Add services
-  (like a database) to this file as you did with previous
-  projects in module #2.
-- `.gitlab-ci.yml`: This is your "ci/cd" file where you will
-  configure automated unit tests, code quality checks, and
-  the building and deployment of your production system.
-  Currently, all it does is deploy an "under construction"
-  page to your production UI on GitLab and a sample backend
-  to CapRover. We will learn much more about this file.
-- `.gitignore`: This is a file that prevents unwanted files
-  from getting added to your repository, files like
-  `pyc` files, `__pycache__`, etc. We've set it up so that
-  it has a good default configuration for Python projects.
-- `.env.sample`: This file is a template to copy when
-  creating environment variables for your team. Create a
-  copy called `.env` and put your own passwords in here
-  without fear of it being committed to git (see `.env`
-  listed in `.gitignore`). You can also put team related
-  environment variables in here, things like api and signing
-  keys that shouldn't be committed; these should be
-  duplicated in your deployed environments.
+### Auth/Users
+(Insert JSON here)
 
-## How to complete the initial deploy
+### Move
 
-There will be further guidance on completing the initial
-deployment, but it just consists of these steps:
+The endpoints for Move (exercise) are protected. A user must be logged in and a user can only see their own data.
+| Action                         | Method | Path                                          |
+| ------------------------------ | ------ | -------------------------------------------- |
+| List exercise entries             | GET    | /api/exercise    |
+| Create exercise entry          | POST   | /api/exercise    |
+| Delete a specific exercise entry | DELETE    | /api/exercise/{id}|
 
-### Setup GitLab repo/project
+**Create an exercise entry:**
+Category choices for logging a new exercise entry include "Run", "Swim", or "Walk". In addition to the minutes, date, and category fields from the input, the output will include the id of the new exercise entry in the database and the user id of the currently logged in user.\
+**Input:**
+```
+{
+  "minutes": 0,
+  "date": "2023-06-05",
+  "category": "string"
+}
+```
+**Output: (Status Code 200)**
+```
+{
+  "id": 0,
+  "user_id": 0,
+  "minutes": 0,
+  "date": "2023-06-05",
+  "category": "string"
+}
+```
 
-- make sure this project is in a group. If it isn't, stop
-  now and move it to a GitLab group
-- remove the fork relationship: In GitLab go to:
+**List all exercise:**
+A list of the currently logged in user's exercise entries will be returned.\
+**Output: (Status Code 200)**
+```
+[
+  {
+    "id": 0,
+    "user_id": 0,
+    "minutes": 0,
+    "date": "2023-06-05",
+    "category": "string"
+  }
+]
+```
 
-  Settings -> General -> Advanced -> Remove fork relationship
+**Delete an exercise entry:**
+"true" will be returned if the exercise has been succesfully deleted. If you try to delete an exercise that has already been deleted or there is a problem deleting the exercise, "false" will be returned. \
+**Output: (Status code 200)***
+```
+true
 
-- add these GitLab CI/CD variables:
-  - PUBLIC_URL : this is your gitlab pages URL
-  - SAMPLE_SERVICE_API_HOST: enter "blank" for now
+```
 
-#### Your GitLab pages URL
 
-You can't find this in GitLab until after you've done a deploy
-but you can figure it out yourself from your GitLab project URL.
 
-If this is your project URL
 
-https://gitlab.com/GROUP_NAME/PROJECT_NAME
+### Rest
+(insert JSON here)
 
-then your GitLab pages URL will be
+### Quench
+(insert JSON here)
 
-https://GROUP_NAME.gitlab.io/PROJECT_NAME
+### Dashboard (Daily Overview)
+The endpoint for the Dashboard (Daily Overview) is protected. A user must be logged in and a user can only see their own data.
+| Action                         | Method | Path                                          |
+| ------------------------------ | ------ | -------------------------------------------- |
+| Get today's overview             | GET    | /api/dashboard    |
 
-### Initialize CapRover
+A sum of all exercise minutes for today, a sum of all water ounces for today, and a sum of all of last night's sleep hours (yesterday) will be returned. This summed information gives the user an at a glance overview of their day and easily render's the information needed for the front-end dashboard.\
+**Output: (Status code 200)**
 
-1. Attain IP address and domain from an instructor
-1. Follow the steps in the CD Cookbook in Learn.
-
-### Update GitLab CI/CD variables
-
-Copy the service URL for your CapRover service and then paste
-that into the value for the SAMPLE_SERVICE_API_HOST CI/CD variable
-in GitLab.
-
-### Deploy it
-
-Merge a change into main to kick off the initial deploy. Once the build pipeline
-finishes you should be able to see an "under construction" page on your GitLab
-pages site.
+```
+{
+  "exercise": 0,
+  "sleep": 0,
+  "water": 0
+}
+```

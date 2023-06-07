@@ -1,14 +1,40 @@
-The date of the entry
-A list of features/issues that you worked on and who you worked with, if applicable
-A reflection on any design conversations that you had
-At least one ah-ha! moment that you had during your coding, however small
+## June 6, 2023
+Today, I worked on:
+
+* Today I continued working on the README file. The team made some group decisions about styling as well. We are done with the MVP. I also clicked through the website and found small bugs. We spent today fixing them.
+
+We are almost done!
+
+
+## June 5, 2023
+Today, I worked on:
+
+* Over the weekend I worked on resolving a CORS error in the deployed front end. I was able to solve this quite quickly with the solution below and then redeploy the back end. The errors went away and everything is functioning normally in the deployed front end now. Today I worked on assisting my teammates with Git merge requests. I assisted Bran with why is pipeline was failing. He had an unresolved merge conflict and "<<<<HEAD" had been inserted into his file. I had him share his screen and helped him locate the unresolved merge conflict. I assisted SoHoan with the steps of how to get her dev branch up to date with main before making a merge request. I also spent a lot of time preparing the README file.
+
+I checked the CORS error in the console and realized the get request was coming from https://mrq1.gitlab.io but we had set the CORS host in the back end deployment to https://mrq.gitlab.io . I deleted the back end deployment and redeployed with the correct CORS host. This resolved the issue.
+
+## June 2, 2023
+Today, I worked on:
+
+* I spend a lot of time on deploying the database, back end service, and finally the frontend. I did run into a module not found error while trying to deploy the back end service. I did eventually solve this problem with the solution below. We managed to deploy the database, back end, and front end but did not have time to test the front end.  
+
+I was confused as to why the development environment was working but the backend deploy was having a module not found error. I realized I did not copy over all of the top level files for the MRQ service into its Dockerfile. Once I copied them all over, the module not found error went away.
+
+
+
+## June 1, 2023
+Today, I worked on:
+
+* I changed the code in Dockerfile, docker-compose.yml, main.py, and gitlab-ci.yml to prepare for deployment. I added a root route to Main.py that returns a success message. I then changed the ports from 8000 to 80 in both the Dockerfile and docker-compose-yml in regards to the MRQ service. Lastly, I added a build script to gitlab-ci.yml to create a docker container that can be deployed in Galvanize cloud. I did have my lint test fail for the MRQ service and had to spend a bit of time fixing a lot of files. After fixing this, we completed the merge request and saw the container in the gitlab registry.
+
+I realized we as a group should run black before making any further merge requests to avoid lint test failures. 
 
 ## May 31, 2023
 Today, I worked on:
 
 * I set up the unit tests folder, installed pytest created our first unit
 test (get all exercise), and cleaned up any unused React variables to
-prepare for deployment. 
+prepare for deployment.
 
 I realized I needed to make a mock user for my unit test because the
 endpoint to get all exercise is protected. At first, I made the unit
