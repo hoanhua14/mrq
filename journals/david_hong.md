@@ -148,6 +148,11 @@ The MR that got sent in included the About Us page, Features page, the updated S
 ## June 6, 2023 (T)
 
 What I accomplished today:
+* Updated CSS for alert message for unmatched passwords at SignUpForm.js and incorrect email/password at LoginForm.js
+* Added an alert for unfulfilled password requirements when signing up for an account
+* Updated the backgrounds for the login and sign up forms
+
+I added a pop up alert message for unfilled passwords and updated it. So now the messages for unmatched passwords and unfilled password requirements match. I also updated the alert when you enter an incorrect email/password at login so that the CSS matches the overall app's theme. I also added backgrounds for the login and sign up forms. I got a template for the alert message CSS from a site a cited in the merge request for this ticket, and I was trying to replace the icon in the message with an animated one from another source, but not matter what I did, I couldn't take out the stale icon.
 
 
 
