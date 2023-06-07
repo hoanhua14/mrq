@@ -19,15 +19,35 @@ class AccountOut(BaseModel):
 
 
 def fake_get_current_account_data():
-    account = AccountOut(
-        id=1,
-        first="Emma",
-        last="Stone",
-        email="EmmaStone@gmail.com",
-        age=34,
-        gender="Female",
-        race="White",
-    )
+    account = AccountOut[
+        {
+            "id": 1,
+            "first": "Emma",
+            "last": "Stone",
+            "email": "EmmaStone@gmail.com",
+            "age": 34,
+            "gender": "Female",
+            "race": "White",
+        },
+        {
+            "id": 2,
+            "first": "LeBron",
+            "last": "James",
+            "email": "LeBronJames@gmail.com",
+            "age": 38,
+            "gender": "Male",
+            "race": "Black or African American",
+        },
+        {
+            "id": 3,
+            "first": "Alicia",
+            "last": "Keys",
+            "email": "AliciaKeys@gmail.com",
+            "age": 42,
+            "gender": "Female",
+            "race": "Black or African American",
+        },
+    ]
     return account.__dict__
 
 

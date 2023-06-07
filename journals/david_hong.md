@@ -36,18 +36,12 @@ What I accomplished today:
 I was pretty stuck today as I was Was getting an unprocessable entity console error when logging in.
 
 
-I was pretty stuck today as I was Was getting an unprocessable entity console error when logging in.
-
-
 ## May 21, 2023 (Su)
 What I accomplished today:
 * Started to work on the SignUpForm.js
 
 I started working on the SignUpForm.js today which is more exhaustive than the LoginForm since there's a lot more information for a user to fill out in order to create an account. I was getting the same problem as I was in the LoginForm.js as in the browser console would throw me an unprocessable entity error and I could not figure out why. On a positive note, on our dropdown for race and gender, I can see all the options we put in our account migration table.
 
-* Started to work on the SignUpForm.js
-
-I started working on the SignUpForm.js today which is more exhaustive than the LoginForm since there's a lot more information for a user to fill out in order to create an account. I was getting the same problem as I was in the LoginForm.js as in the browser console would throw me an unprocessable entity error and I could not figure out why. On a positive note, on our dropdown for race and gender, I can see all the options we put in our account migration table.
 
 
 ## May 22, 2023 (M)
@@ -151,15 +145,21 @@ What I accomplished today:
 * Updated CSS for alert message for unmatched passwords at SignUpForm.js and incorrect email/password at LoginForm.js
 * Added an alert for unfulfilled password requirements when signing up for an account
 * Updated the backgrounds for the login and sign up forms
+* Reviewed MRs
+* Started looking at page transitions when navigating app
 
-I added a pop up alert message for unfilled passwords and updated it. So now the messages for unmatched passwords and unfilled password requirements match. I also updated the alert when you enter an incorrect email/password at login so that the CSS matches the overall app's theme. I also added backgrounds for the login and sign up forms. I got a template for the alert message CSS from a site a cited in the merge request for this ticket, and I was trying to replace the icon in the message with an animated one from another source, but not matter what I did, I couldn't take out the stale icon.
-
+I added a pop up alert message for unfilled passwords and updated it. So now the messages for unmatched passwords and unfilled password requirements match. I also updated the alert when you enter an incorrect email/password at login so that the CSS matches the overall app's theme. I also added backgrounds for the login and sign up forms. I got a template for the alert message CSS from a site a cited in the merge request for this ticket, and I was trying to replace the icon in the message with an animated one from another source, but not matter what I did, I couldn't take out the stale icon. A lot of today was spent reviewing MRs and helping other members with their MRs too because we ran into some issues today but we resolved them all.
+This is more of a stretch goal thing, but I wanted to add page transition animations when navigating to a new page in our app. I think this will make for a more seamless user experience, instead of the pages just navigating to the next too quickly.
 
 
 ## June 7, 2023 (W)
 
 What I accomplished today:
+* Completed portion of readme for auth/users
+* Updated unit test
+* Planned my portion of project presentation
 
+I completed my portion of the project readme to go over the six endpoints invovled on my end. The endpoints included: login, logout, signup, get token, create account, get all accounts, and get account details. I just went over what each endpoint did along with their expected inputs and outputs. I updated my unit test. My unit test is testing to get all accounts, but I only had one account in the mock data, so I made two more and put them in a list. The test passed. I also planned what I wanted to show and talk about for project presentations to the instructors for the most part.
 
 
 ## June 8, 2023 (Tr)

@@ -28,7 +28,7 @@ MRQ targets consumers in the fitness and wellbeing market who are looking to tra
 - Users can sign up for an account via the "Get Started" button on the homepage banner or the "Sign Up" button in the navigation bar.
 - Users can log out via the "Sign Out" button on the navigation bar.
 - Users who already have an account can log in via the "Log In" button on the navigation bar.
-- Users can access their personalized dashboard displaying daily goals provided by MRQ based on general recommendations for daily sleep, water, and exercise via the "Dashboard" button on the navigation bar.
+- Users can access their personalized dashboard displaying daily goals provided by MRQ based on general recommendations for daily sleep, water, and exercise via the "Goals" button on the navigation bar.
 - User's can view a daily overview including three progress charts on their dashboard with a percentage representing their progress toward the exercise, water, and sleep goals. The % on the progress charts represent a sum of exercise entries for today, water entries for today, and sleep entries for last night (yesterday).
 - Users can click the "Add a log" button for exercise to record an exercise session. If the session is logged for today, the user will see their progress chart reflect the new entry.
 - Users can click the "Add a log" button for water to record water intake. If the session is logged for today, the user will see their progress chart reflect the new entry.
@@ -105,7 +105,7 @@ The water list is personalized to the user and lists all of their water entries 
 ![Water List Page](/image/WATER-LIST.png "This is the Water List page.")
 
 ### Resources page
-The reousces page provides a comprehensive guide to health management tips that can help improve overall well-being.
+The resources page provides a comprehensive guide to health management tips that can help improve overall well-being.
 
 ![Resources Page](/image/RESOURCES.png "This is the Resources page.")
 
@@ -125,7 +125,7 @@ The Log in page allows registered users to sign in and access the features provi
 ![Log In Page](/image/LOG-IN.png "This is the Log In page.")
 
 ### Sign Up Page
-The Sign up page allows new users to register an account and access the health management tips provided on our website.
+The Sign up page allows new users to register an account and access the health management tools provided on our website.
 
 ![Sign Up Page](/image/SIGN-UP.png "This is the Sign Up page.")
 
@@ -133,7 +133,132 @@ The Sign up page allows new users to register an account and access the health m
 ## FastAPI Endpoints
 
 ### Auth/Users
-(Insert JSON here)
+Galvanize JWTdown for FastAPI and React were used to authenticate the backend and frontend.
+
+| Action            | Method        | Path                  |
+| ----------------- | ------------- | --------------------- |
+| Login             | POST          | /token                |
+| Logout            | DELETE        | /token                |
+| Get token         | GET           | /token                |
+| Create account    | POST          | /api/accounts         |
+| Get all accounts  | GET           | /api/accounts         |
+| Get one account   | GET           | /api/accounts/{id}    |
+
+**Create an account:**
+On the backend, creating an account requires seven input fields to fill in: first (name), last (name), password, email, age, gender, and race. In addition to the seven inputs (except for password), the output will include the account's access token, that token's type, and a unique id.
+**Input:**
+```
+{
+  "first": "George",
+  "last": "Washington",
+  "password": "GeorgeWashington12345!",
+  "email": "George@Washington.com",
+  "age": 10000,
+  "gender": "Male",
+  "race": "White"
+}
+```
+**Output (Status Code 200):**
+```
+{
+  "access_token": "literally_a_unique_token_string_here",
+  "token_type": "Bearer",
+  "account": {
+    "id": 8,
+    "first": "George",
+    "last": "Washington",
+    "email": "George@Washington.com",
+    "age": 10000,
+    "gender": "Male",
+    "race": "White"
+  }
+}
+```
+
+**Login:**
+On the backend, logging into an account just requires two inputs fields: username(email) and password. Since the Galvanize JWTdown for FastAPI was used for login, the input field doesn't require manipulating a JSON body.
+**Input:**
+![Login Page](/image/Backend-Login.png)
+**Output (Status Code 200):**
+```
+{
+  "access_token": "literally_a_unique_token_string_here",
+  "token_type": "Bearer"
+}
+```
+
+**Get token:**
+To get the token of a logged in user, click "execute" on localhost:8000/docs to get the token of a logged in user. This endpoint is often used to just confirm whether a user is logged in or not. This returns the access token, the token type, account id, first (name), last (name), email, age, gender, and race.
+**Output if logged in (Status Code 200):**
+```
+{
+  "access_token": "literally_a_unique_token_string_here",
+  "token_type": "Bearer",
+  "account": {
+    "id": 8,
+    "first": "George",
+    "last": "Washington",
+    "email": "George@Washington.com",
+    "age": 10000,
+    "gender": "Male",
+    "race": "White"
+  }
+}
+```
+**Output if logged out (Status Code 200):**
+```
+null
+```
+
+**Logout:**
+The logout endpoint was also from the Galvanize JWTdown for FastAPI, making for easy logout functionality for the backend.
+**Output (Status Code 200):**
+```
+true
+```
+
+**Get all accounts:**
+An endpoint to return all accounts created in the database. This returns everything but the passwords of all accounts.
+**Output (Status Code 200):**
+```
+[
+  {
+    "id": 7,
+    "first": "me",
+    "last": "me",
+    "email": "me@me.com",
+    "age": 0,
+    "gender": "Male",
+    "race": "Asian"
+  },
+  {
+    "id": 8,
+    "first": "George",
+    "last": "Washington",
+    "email": "George@Washington.com",
+    "age": 10000,
+    "gender": "Male",
+    "race": "White"
+  }
+]
+```
+
+**Get one account:**
+An endpoint that returns a specific account by id. On localhost:8000/docs, simply put the id number of an account's details you want to see. This returns everything of a specific account, but the password is a hashed password.
+**Output (Status Code 200):**
+```
+{
+  "id": 8,
+  "first": "George",
+  "last": "Washington",
+  "email": "George@Washington.com",
+  "age": 10000,
+  "gender": "Male",
+  "race": "White",
+  "hashed_password": "$2b$12$4wx0KKLxyWa54xt2MB4LZuIMea6pgmJGuQzCqBF3xwnZPC9fLqFhW"
+}
+```
+
 
 ### Move
 
