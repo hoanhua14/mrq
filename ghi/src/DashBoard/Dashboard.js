@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import Calendar from './Calendar';
-// import ExerciseIcon from './Exercise-icon.svg';
 import Overview from './Overview';
 import ExerciseList from '../ListExercise';
 import SleepList from '../Sleep/SleepList';
@@ -51,14 +50,6 @@ function Dashboard() {
         <h1 className="text-center text-3xl text-black pt-9 dashboard-font-bold">Dashboard</h1>
         <div className="flex-1 flex flex-col justify-center mx-auto">
           <button className="text-center py-2 px-4 text-5xl font-bold mb-10 dashboard-button" onClick={handleOverviewClick}>Overview</button>
-          {/* <div className="grid place-content-center gap-1 md:grid-cols-2">
-            <div className="hidden md:inline-flex my-10 md:ml-14 w-full justify-center items-center" onClick={handleMoveClick}>
-              <div className="bg-violet-300 p-2 rounded-lg">
-                <img src={ExerciseIcon} width="48" height="48" alt="centered" className="object-center" />
-              </div>
-              <p className="text-4xl pl-5  dashboard-button" >Move</p>
-            </div>
-          </div> */}
           <button className="text-center py-2 px-4 text-5xl font-bold mb-10 dashboard-button" onClick={handleMoveClick}>Move</button>
           <button className="text-center py-2 px-4 text-5xl font-bold mb-10 dashboard-button" onClick={handleSleepClick}>Rest</button>
           <button className="text-center py-2 px-4 text-5xl font-bold mb-10 dashboard-button" onClick={handleWaterClick}>Quench</button>
@@ -100,17 +91,14 @@ function Dashboard() {
         <h1 className="text-center text-3xl text-black mb-10 pt-8 dashboard-font-bold">Today's Goals</h1>
         <div className="flex flex-col justify-center my-auto mx-auto w-60 rounded-lg dashboard-goal">
           <p className="mx-auto mb-0.5 pt-9 pb-3 px-1 w-40 text-center">
-            {/* <span className="text-left text-4xl block leading-none font-bold" style={{lineHeight: '0.2'}}>60</span> */}
             <span className="text-4xl block leading-none" style={{lineHeight: '0.2'}}>60 min</span><br/>
             <span className="text-sm block leading-none dashboard-goal-line" style={{lineHeight: '0.2'}}>exercise duration</span>
           </p>
           <p className="mx-auto mb-0.5 pt-7 pb-3 px-1 w-40 text-center">
-            {/* <span className="text-left pl-9 text-4xl block leading-none" style={{lineHeight: '0.2'}}>8</span> */}
             <span className="text-center text-4xl block leading-none" style={{lineHeight: '0.2'}}>8 hours</span><br/>
             <span className="text-center text-sm block leading-none dashboard-goal-line" style={{lineHeight: '0.2'}}>nighttime sleep</span>
           </p>
           <p className="mx-auto mb-0.5 pt-7 pb-9 px-1 w-40 text-center">
-            {/* <span className="text-left pl-9 text-4xl block leading-none" style={{lineHeight: '0.2'}}>100</span> */}
             <span className="text-center text-4xl block leading-none" style={{lineHeight: '0.2'}}>100 Oz</span><br/>
             <span className="text-center text-sm block leading-none" style={{lineHeight: '0.2'}}>water intake</span>
           </p>

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from 'react-router-dom';
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import useUser from "./useUser";
@@ -10,6 +11,7 @@ const Nav = () => {
     const { token, logout } = useToken();
     const { user } = useUser(token);
     const navigate = useNavigate();
+    const [windowWidth, setWindowWidth] = useState(0);
 
     const handleLogout = () => {
         logout();
@@ -17,9 +19,23 @@ const Nav = () => {
         window.location.reload();
     };
 
+    useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const isSmallScreen = windowWidth < 1250;
+
+
   return (
-    <nav className="py-4"
-    style={{ backgroundColor: '#c5f2e6' }}>
+    <nav className="py-4" style={{ backgroundColor: '#c5f2e6' }}>
       <div className="max-w-6xl mx-auto flex justify-between items-center px-4">
         <div className='absolute left-4 animate-bounce'>
           <img
@@ -28,7 +44,7 @@ const Nav = () => {
           style={{ width: '2cm', height: '2cm' }}
            />
         </div>
-        <div className="flex justify-center flex-grow">
+        <div className={`flex flex-grow ${isSmallScreen ? "ml-20" : "justify-center"}`}>
             <div className="flex justify-between w-1/2">
                 <NavLink
                 to="/"
@@ -57,7 +73,9 @@ const Nav = () => {
                 <div >
                   {user ? (
                       <div className="font-bold absolute top-0 right-0">
-                        <span style={{ marginRight: '0.5rem' }}>Good to see you, {user.first}</span>
+
+                        <span className="text-blue-500 text-2xl" style={{marginRight: '0.7rem'}}>Hello, {user.first}</span>
+                        {/* <span style={{ lineHeight: '0.1', marginRight: '0.5rem' }}>Good to see you!</span> */}
                           <StyledButton text="Sign Out" onClick={handleLogout}>Sign out?</StyledButton>
                           <NavLink
                           className="group relative inline-block focus:outline-none focus:ring"

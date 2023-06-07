@@ -1,4 +1,17 @@
-## June 1 2023
+## June  2023
+* Feview all code for unncessary comment.
+* Uncomment the unit tests for final deployment.
+* Update Readme.md
+
+## June 6 2023
+* Added MRQ logo in the tab within browser
+* Trying to fix the login failed error message when a user login correctly the first time
+
+## June 5 2023
+* Refine the mini calendar table in Dashboard.
+* Change some styling and the Donut chart appearance.
+
+## June 2 2023
 * Continue working on CI/CD.
 * A mini calendar table in Dashboard is finished.
 

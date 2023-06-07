@@ -11,10 +11,6 @@ from queries.water_db import (
 router = APIRouter()
 
 
-# BT:  5/18/2023 - water.get_one_water() and
-# water_db.WaterRepository.get_one_water_id()
-# can be removed after user authenticator
-# function is fully working.
 @router.get("/api/water/{id}", response_model=Optional[WaterOut])
 def get_one_water(
     id: int,

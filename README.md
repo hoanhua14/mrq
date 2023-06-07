@@ -68,34 +68,65 @@ The options for category include "Run", "Swim", or "Walk".
 (insert sleep table here)
 
 ### Water Table
-(insert water table here)
+The options for category include "Run", "Swim", or "Walk".
+| name              | Type | Unique| Optional |
+| ------------------------- | ------ | -------------------------------------------- | ------- |
+| id             | serial    | yes    | no |
+| user_id             | integer    | no    | no |
+| ounces          | smallint    | no    | no |
+| date             | date    | no    | no |
+
 
 ## GHI (Graphical Human Interface)
 ### Home Page
 This is the first page users will see when they visit the website.
-(Insert screenshot)
+
+![Home Page](/image/HOME-PAGE.png "This is the Home Page.")
+
 ### Dashboard
 The dashboard is personalized to the user and displays progress toward the exercise, water, and sleep goals. There is a chart for the three categories so users can see today's progress at a glance.
-(Insert screenshot)
+
+![Dashboard Page](/image/DASHBOARD.png "This is the Dashboard page.")
+
 ### Exercise List
 The exercise list is personalized to the user and lists all of their exercise entries for all dates. A user is able to delete entries from this view.
-(Insert screenshot)
+
+![Exercise List Page](/image/EXERCISE-LIST.png "This is the Exercise List page.")
+
 ### Sleep List
 The sleep list is personalized to the user and lists all of their sleep entries for all dates. A user is able to delete entries from this view.
-(Insert screenshot)
+
+![Sleep List Page](/image/SLEEP-LIST.png "This is the Sleep List page.")
+
 ### Water List
 The water list is personalized to the user and lists all of their water entries for all dates. A user is able to delete entries from this view.
-(Insert screenshot)
-### Resources page
-Some info about resources page
-(Insert screenshot)
-### About us page
-Some info about About us page
-(Insert screenshot)
-### Features Page
-Some info about features page
-(Insert screenshot)
 
+![Water List Page](/image/WATER-LIST.png "This is the Water List page.")
+
+### Resources page
+The reousces page provides a comprehensive guide to health management tips that can help improve overall well-being.
+
+![Resources Page](/image/RESOURCES.png "This is the Resources page.")
+
+### About Us page
+The About Us page provides an introduction to the website developers who created the web page and their mission to provide health management tips.
+
+![About Us Page](/image/ABOUT-US.png "This is the About Us page.")
+
+### Features Page
+The features page provides an overview of the functions and features of the website that can help manage health more effectively.
+
+![Features Page](/image/FEATURES.png "This is the Feastures page.")
+
+### Log In Page
+The Log in page allows registered users to sign in and access the features provided on our website.
+
+![Log In Page](/image/LOG-IN.png "This is the Log In page.")
+
+### Sign Up Page
+The Sign up page allows new users to register an account and access the health management tips provided on our website.
+
+![Sign Up Page](/image/SIGN-UP.png "This is the Sign Up page.")
 
 
 ## FastAPI Endpoints
@@ -163,7 +194,53 @@ true
 (insert JSON here)
 
 ### Quench
-(insert JSON here)
+The endpoints for Quench (water) are protected. A user must be logged in and a user can only see their own data.
+| Action                         | Method | Path                                          |
+| ------------------------------ | ------ | -------------------------------------------- |
+| List exercise entries             | GET    | /api/water   |
+| Create exercise entry          | POST   | /api/water    |
+| Delete a specific exercise entry | DELETE    | /api/water/{id}|
+
+**Create a water entry:**
+The input includes water intake (ounces) and a date chosen from a calendar for logging in a new entry. The output will include the id of the new water entry in the database and the user id of the currently logged in user.\
+**Input:**
+```
+{
+  "ounces": 6,
+  "date": "2023-06-07"
+}
+```
+**Output: (Status Code 200)**
+```
+{
+  "id": 13,
+  "user_id": 5,
+  "ounces": 6,
+  "date": "2023-06-07"
+}
+```
+
+**List all water:**
+A list of the currently logged in user's water entries will be returned.\
+**Output: (Status Code 200)**
+```
+[
+  {
+    "id": 5,
+    "user_id": 5,
+    "ounces": 13,
+    "date": "2023-05-11"
+  }
+]
+```
+
+**Delete a water entry:**
+"true" will be returned if the water has been succesfully deleted. If you try to delete a water that has already been deleted or there is a problem deleting the exercise, "false" will be returned. \
+**Output: (Status code 200)***
+```
+true
+
+```
 
 ### Dashboard (Daily Overview)
 The endpoint for the Dashboard (Daily Overview) is protected. A user must be logged in and a user can only see their own data.

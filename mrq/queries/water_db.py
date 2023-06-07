@@ -9,7 +9,6 @@ class Error(BaseModel):
 
 
 class WaterIn(BaseModel):
-    # user_id: int
     ounces: int
     date: date
 
