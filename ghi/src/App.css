@@ -53,12 +53,65 @@
 }
 
 .dashboard-border {
-  border: 2px solid rgb(19, 94, 9);
+  /* border: 2px solid rgb(255, 255, 255); */
+  background-color: rgb(255, 255, 255);
   margin-top: 15px;
-  border-radius: 10px;
+  margin-bottom: 40px;
+  margin-left: 20px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 15px;
+}
+
+.dashboard-background {
+  background-color: rgb(225, 225, 225);
+}
+
+.dashboard-goal {
+  background-color: rgb(112, 93, 199);
+  color:white;
+}
+
+.dashboard-goal-line::after {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color: white;
+  margin-top: 36px;
+}
+.dashboard-purple-text {
+  color: rgb(112, 93, 199);
 }
 
 .dashboard-height {
-  max-height: 90vh;
+  max-height: 95vh;
 }
 
+.overview-button {
+ background-color: rgb(255, 255, 255);
+ color: rgb(112, 93, 199);
+}
+
+.overview-button:hover {
+ background-color: rgb(112, 93, 199);
+ color: rgb(255, 255, 255);
+ font-weight: bold;
+}
+
+.dashboard-button {
+ background-color: rgb(255, 255, 255);
+ color: rgb(0, 0, 0);
+}
+
+.dashboard-button:hover {
+ background-color: rgb(112, 93, 199);
+ color: rgb(255, 255, 255);
+ font-weight: bold;
+}
+
+/* .dashboard-button:active {
+  background-color: rgb(12, 93, 199);
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+} */
