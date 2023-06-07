@@ -12,7 +12,7 @@ const Calendar = () => {
   }
 
   return (
-    <div className="bg-white p-1 dashboard-font-normal dashboard-border">
+    <div className="bg-white p-1 dashboard-font-normal dashboard-border flex-shrink">
       <div className="text-center text-2xl font-bold mb-4">
         {date.toLocaleString('default', { month: 'long' })} {date.getFullYear()}
       </div>

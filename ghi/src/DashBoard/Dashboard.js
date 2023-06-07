@@ -56,7 +56,7 @@ function Dashboard() {
         </div>
       </div>
       {overviewVisible ? (
-        <div className="flex flex-col w-3/5 dashboard-border">
+        <div className="flex flex-col flex-shrink w-3/5 dashboard-border">
           <h1 className="text-center text-3xl text-black pt-5 pb-5 dashboard-font-bold ">Today's Overview</h1>
           <Overview />
         </div>
@@ -103,7 +103,7 @@ function Dashboard() {
             <span className="text-center text-sm block leading-none" style={{lineHeight: '0.2'}}>water intake</span>
           </p>
         </div>
-        <div className="flex items-center justify-center mt-12" >
+        <div className="flex-shrink justify-center mt-12" >
                 <Calendar />
         </div>
       </div>

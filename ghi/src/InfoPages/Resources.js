@@ -14,7 +14,7 @@ const Resources = () => {
   };
 
   return (
-    <div className="container mx-auto mt-2">
+    <div className="container mx-auto ">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {articles.map((article) => (
           <div key={article.id} className="bg-white rounded-lg overflow-hidden resources-page shadow-md border border-style-solid border-color-rgb-200-185-241 border-width-5p">

@@ -1,4 +1,6 @@
 ## Week 17, tuesday 6/6
+- fixed the get started button on main page which stopped working after deployment
+- worked on making the dashboard more responsive
 
 ## Week 17, monday 6/5
 - today i restyled the about us page (changed the background)

@@ -66,10 +66,16 @@ The options for category include "Run", "Swim", or "Walk".
 | category             | text    | no    | no |
 
 ### Sleep Table
-(insert sleep table here)
+The options for quality is 1, 2, 3, 4, 5.
+| name              | Type | Unique| Optional |
+| ------------------------- | ------ | -------------------------------------------- | ------- |
+| id             | serial    | yes    | no |
+| user_id             | integer    | no    | no |
+| hours           | smallint    | no    | no |
+| date             | date    | no    | no |
+| quality             | interger    | no    | no |
 
 ### Water Table
-The options for category include "Run", "Swim", or "Walk".
 | name              | Type | Unique| Optional |
 | ------------------------- | ------ | -------------------------------------------- | ------- |
 | id             | serial    | yes    | no |
@@ -317,7 +323,63 @@ true
 
 
 ### Rest
-(insert JSON here)
+The endpoints for Rest (sleep) are protected. A user must be logged in and a user can only see their own data.
+| Action                         | Method | Path                                          |
+| ------------------------------ | ------ | -------------------------------------------- |
+| List sleep entries             | GET    | /api/sleep/all   |
+| Create sleep entry          | POST   | /api/sleep/new    |
+| Delete a specific sleep entry | DELETE    | /api/sleep/{id}|
+
+**Create a sleep entry:**
+The input includes sleep hours (hours), sleep quality (rating from 1 to 5)  and a date chosen from a calendar for logging in a new entry. The output will include the id of the new sleep entry in the database and the user id of the currently logged in user.\
+**Input:**
+```
+{
+  "hours": 10,
+  "date": "2023-06-07",
+  "quality": 2
+}
+```
+**Output: (Status Code 200)**
+```
+{
+  "id": 1,
+  "user_id": 1,
+  "hours": 10,
+  "date": "2023-06-07",
+  "quality": 2
+}
+```
+
+**List all sleep:**
+A list of the currently logged in user's sleep entries will be returned.\
+**Output: (Status Code 200)**
+```
+[
+  {
+    "id": 1,
+    "user_id": 1,
+    "hours": 10,
+    "date": "2023-06-07",
+    "quality": 2
+  },
+  {
+    "id": 2,
+    "user_id": 1,
+    "hours": 5,
+    "date": "2023-06-07",
+    "quality": 5
+  }
+]
+```
+
+**Delete a sleep entry:**
+"true" will be returned if the sleep entry has been successfully deleted. If you try to delete a sleep entry that has already been deleted or there is a problem deleting the exercise, "false" will be returned. \
+**Output: (Status code 200)***
+```
+true
+
+```
 
 ### Quench
 The endpoints for Quench (water) are protected. A user must be logged in and a user can only see their own data.
