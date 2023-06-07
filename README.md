@@ -8,7 +8,8 @@ Team:
 - David Hong
 
 ## Wireframe
-(Insert screenshot here)
+
+![MRQ Wirefram](image/Wireframe.png "MRQ Wireframe")
 
 ## Intended Market
 MRQ targets consumers in the fitness and wellbeing market who are looking to track their health related data without emphasis on calories or weight. With a focus on water intake, exercise minutes, and hours of sleep, the consumer can track their health related goals while maintaining a healthy relationship with food.

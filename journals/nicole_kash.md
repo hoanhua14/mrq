@@ -1,3 +1,10 @@
+## June 7, 2023
+Today, I worked on:
+
+* Today I worked on updating the wireframe for the README to reflect our finished product. I discussed the wireframe with my teammates and made adjustments based on their feedback. We un-commented out the unit tests from gitlab-ci.yml. I assisted Bran with debugging some pipeline errors. Our unit tests are running fine in our service docker container but the git pipeline failed. We had to add some variables to the api-unit-tests-job which solved the problem.
+
+The api-unit-tests-job pipeline errors in git included a key error for database url and signing key. Once we added these to the api-unit-tests-job the problem was solved. The tests now pass in the git pipeline and our local docker containers.
+
 ## June 6, 2023
 Today, I worked on:
 
@@ -9,7 +16,7 @@ We are almost done!
 ## June 5, 2023
 Today, I worked on:
 
-* Over the weekend I worked on resolving a CORS error in the deployed front end. I was able to solve this quite quickly with the solution below and then redeploy the back end. The errors went away and everything is functioning normally in the deployed front end now. Today I worked on assisting my teammates with Git merge requests. I assisted Bran with why is pipeline was failing. He had an unresolved merge conflict and "<<<<HEAD" had been inserted into his file. I had him share his screen and helped him locate the unresolved merge conflict. I assisted SoHoan with the steps of how to get her dev branch up to date with main before making a merge request. I also spent a lot of time preparing the README file.
+* Over the weekend I worked on resolving a CORS error in the deployed front end. I was able to solve this quite quickly with the solution below and then redeploy the back end. The errors went away and everything is functioning normally in the deployed front end now. Today I worked on assisting my teammates with Git merge requests. I assisted Bran with why his pipeline was failing. He had an unresolved merge conflict and "HEAD" had been inserted into his file. I had him share his screen and helped him locate the unresolved merge conflict. I assisted SoHoan with the steps of how to get her dev branch up to date with main before making a merge request. I also spent a lot of time preparing the README file.
 
 I checked the CORS error in the console and realized the get request was coming from https://mrq1.gitlab.io but we had set the CORS host in the back end deployment to https://mrq.gitlab.io . I deleted the back end deployment and redeployed with the correct CORS host. This resolved the issue.
 
@@ -32,13 +39,13 @@ I realized we as a group should run black before making any further merge reques
 ## May 31, 2023
 Today, I worked on:
 
-* I set up the unit tests folder, installed pytest created our first unit
+* I set up the unit tests folder, installed pytest, created our first unit
 test (get all exercise), and cleaned up any unused React variables to
 prepare for deployment.
 
 I realized I needed to make a mock user for my unit test because the
 endpoint to get all exercise is protected. At first, I made the unit
-test without this and recieved a 401 error which prompted me to set
+test without this and received a 401 error which prompted me to set
 up the mock user in the test.
 
 
@@ -81,7 +88,7 @@ point that pulls from the exercise table, sleep table, and
 water table, adds everything up, and then just returns
 the three numbers needed to populate the dashboard. I
 also needed a handler with a constructor. I looked backed
-on my python pratice problems from module 1 to assist
+on my python practice problems from module 1 to assist
 me with creating a constructor.
 
 ## May 24, 2023
@@ -96,7 +103,7 @@ created the image yesterday and I hosted the banner's
 background image on Imgur so I can use the link.
 
 I remembered I can import Link from react-router-dom
-to easy make the button clickable and simplfy the
+to easily make the button clickable and simplify the
 redirect.
 
 
@@ -159,7 +166,7 @@ the documentation and managed to complete the task in 3 hours.
 
 
 We debugged an error regarding an attribute error and found
-out we were trying to access and object with a key and value
+out we were trying to access an object with a key and value
 when we needed to use dot notation. After discussing with the
 SEIR Marty, we changed our "account_dict" object into a dictionary
 as this is best practice as per the jwtdown-fastapi documentation.
@@ -171,18 +178,18 @@ Today, I worked on:
 
 * Protected endpoints for exercise.
 
-I completeted the protected endpoints to POST,
+I completed the protected endpoints to POST,
 DELETE, as well as GET all exercise for a specific
 user. Users can only view and manipulate their own
 data and users must be logged in.
 
 
-In order the achieve the above, I had to add an extra
-parameter, user_id to the querie. I realized I could
+In order to achieve the above, I had to add an extra
+parameter, user_id to the query. I realized I could
 grab the logged in user's id using account_data, which
 is used to protect endpoints in the router. I pulled out
 the id in the router function and sent it through as a
-parameter in the querie function in order to get the
+parameter in the query function in order to get the
 functionality I need. Now, users must be logged in and
 only have access to their own data.
 
@@ -190,7 +197,7 @@ only have access to their own data.
 
 Today, I worked on:
 
-* Backend auth with David
+* Back end auth with David
 
 David and I finished up the backend auth including
 creating an account, JWT token creation, logging in,
