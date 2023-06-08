@@ -31,7 +31,6 @@ function SleepForm() {
         data.date = date;
         data.hours = hours;
         data.quality = quality;
-        console.log(data);
 
         const sleepUrl = `${process.env.REACT_APP_MRQ_SERVICE}/api/sleep`
         const fetchConfig = {

@@ -5,14 +5,6 @@ from authenticator import authenticator
 from queries.sleep import SleepRepository
 
 
-# class SleepOutInstance(BaseModel):
-#     id: int
-#     user_id: int
-#     hours: int
-#     date: date
-#     quality: int = Field(ge=1, le=5)
-
-
 client = TestClient(app)
 
 
