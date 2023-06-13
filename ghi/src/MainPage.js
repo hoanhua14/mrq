@@ -1,44 +1,45 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import yoga1 from "./LottieImages/yoga1.json";
+import Lottie from "lottie-react";
 
 
 export default function MainPage() {
   return (
-    <div className="'2xl':container  mx-auto">
-      <section
-  className="relative bg-[url(https://i.imgur.com/VK0GCzK.png)]  bg-cover bg-center bg-no-repeat flex-grow"
->
+  <>
+  <div className="flex justify-center items-center h-screen bg-[url(https://i.imgur.com/6tXuiW2.png)] bg-cover bg-center bg-no-repeat">
+<section className="bg-white-900 text-black">
   <div
-    className="absolute inset-0 bg-white/75 sm:bg-transparent sm:from-white/95 sm:to-white/25 ltr:sm:bg-gradient-to-r rtl:sm:bg-gradient-to-l"
-  ></div>
-
-  <div
-    className="relative max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8"
+    className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center"
   >
-    <div className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
-      <h1 className="text-3xl font-extrabold sm:text-5xl">
+    <div className="mx-auto max-w-3xl text-center">
+      <h1
+        className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl"
+      >
         Move. Rest. Quench.
 
-        <strong className="block font-extrabold text-rose-700">
-          Since 2023
-        </strong>
+        <span className="sm:block"> Since 2023. </span>
       </h1>
 
-      <p className="mt-4 max-w-lg sm:text-xl/relaxed">
-        Fitness Beyond The Scale.
+      <p className="mx-auto mt-4 max-w-xl sm:text-xl/relaxed">
+        Fitness beyond the scale.
       </p>
 
-      <div className="mt-8 flex flex-wrap gap-4 text-center justify-center">
+      <div className="mt-8 flex flex-wrap justify-center gap-4">
         <Link to="/signup">
-          <p className="block w-full rounded bg-rose-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto" >
+          <p className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto" >
           Get Started
           </p>
         </Link>
-
       </div>
     </div>
   </div>
 </section>
-    </div>
+<div style={{width: "40%"}}>
+<Lottie animationData={yoga1}/>
+</div>
+
+</div>
+</>
   )
 };
