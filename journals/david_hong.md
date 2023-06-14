@@ -165,9 +165,20 @@ I completed my portion of the project readme to go over the six endpoints invovl
 ## June 8, 2023 (Tr)
 
 What I accomplished today:
+* Graded presentation
+
+Today we had our graded presentation and we were the first group to go. I had prepared a list of bullet points in Google Docs on what I wanted to cover with things to make sure I explain. It went well and the instructors said we didn't go overboard and had just the perfect amount of things covered for the MVP which was good to hear. For some reason, I thought that presentation was a practice one and the graded presentation was tomorrow, so I didn't feel nervous during it which was pretty funny. Overall good day.
 
 
-
-## June 9, 2023 (F)
+## June 9-11, 2023 (F, Sa, Su)
 
 What I accomplished today:
+* Didn't work on project at all this week due to exam prep
+
+I focused on preparing for the upcoming exam on Monday throughout the whole weekend so I didn't work on the project stretch goals
+
+
+## June 13, 2023 (T)
+
+What I accomplished today:
+* I added a footer to show at the bottom of our app at all pages

@@ -15,6 +15,7 @@ import SleepForm from "./Sleep/SleepForm";
 import SleepList from "./Sleep/SleepList";
 import ExerciseForm from "./ExerciseForm";
 import ExerciseList from "./ListExercise";
+import Footer from "./Footer";
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
             <Route path="/sleep/all" element={<SleepList />}/>
           </Routes>
         </div>
+        <Footer />
         </AuthProvider>
     </BrowserRouter>
   )
