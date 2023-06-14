@@ -53,7 +53,7 @@ const LoginForm = () => {
               type="email"
               name="username"
               id="username"
-              className="form-input"
+              className="form-input bg-purple-100 rounded-md shadow-lg"
               value={username}
             />
           </div>
@@ -65,7 +65,7 @@ const LoginForm = () => {
               type="password"
               name="password"
               id="password"
-              className="form-input"
+              className="form-input bg-purple-100 rounded-md shadow-lg"
               value={password}
             />
           </div>

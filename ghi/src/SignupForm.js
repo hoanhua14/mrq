@@ -87,7 +87,7 @@ const SignupForm = () => {
               type="text"
               name="first"
               id="first"
-              className="form-input"
+              className="form-input bg-purple-100 rounded-md shadow-lg"
               value={first}
             />
           </div>
@@ -101,7 +101,7 @@ const SignupForm = () => {
               type="text"
               name="last"
               id="last"
-              className="form-input"
+              className="form-input bg-purple-100 rounded-md shadow-lg"
               value={last}
             />
           </div>
@@ -115,7 +115,7 @@ const SignupForm = () => {
               type="password"
               name="password"
               id="password"
-              className="form-input"
+              className="form-input bg-purple-100 rounded-md shadow-lg"
               value={password}
             />
           </div>
@@ -129,7 +129,7 @@ const SignupForm = () => {
               type="password"
               name="confirmPassword"
               id="confirmPassword"
-              className="form-input"
+              className="form-input bg-purple-100 rounded-md shadow-lg"
               value={confirmPassword}
             />
           </div>
@@ -143,7 +143,7 @@ const SignupForm = () => {
               type="email"
               name="email"
               id="email"
-              className="form-input"
+              className="form-input bg-purple-100 rounded-md shadow-lg"
               value={email}
             />
           </div>
@@ -158,7 +158,7 @@ const SignupForm = () => {
               min="0"
               name="age"
               id="age"
-              className="form-input"
+              className="form-input bg-purple-100 rounded-md shadow-lg"
               value={age}
             />
           </div>
@@ -171,7 +171,7 @@ const SignupForm = () => {
               required
               name="gender"
               id="gender"
-              className="form-select"
+              className="form-select bg-purple-100 rounded-md shadow-lg"
               value={gender}
             >
               <option value="">Choose an option</option>
@@ -190,7 +190,7 @@ const SignupForm = () => {
               required
               name="race"
               id="race"
-              className="form-select"
+              className="form-select bg-purple-100 rounded-md shadow-lg"
               value={race}
             >
               <option value="">Choose an option</option>

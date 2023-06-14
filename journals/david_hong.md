@@ -182,3 +182,9 @@ I focused on preparing for the upcoming exam on Monday throughout the whole week
 
 What I accomplished today:
 * I added a footer to show at the bottom of our app at all pages
+
+
+## June 14, 2023 (T)
+
+What I accomplished today:
+* I updated signup and login form input fields
