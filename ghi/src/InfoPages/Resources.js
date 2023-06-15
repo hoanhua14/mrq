@@ -1,72 +1,88 @@
-import React, { useState } from "react";
+import React from "react";
 import { articles } from "./HealthTips";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 const Resources = () => {
-  const [isFrameOpen, setIsFrameOpen] = useState(false);
-  const [tips, setTips] = useState("");
 
   const handleOpenFrame = (tips) => {
-      setIsFrameOpen(true);
-      setTips(tips);
+    const width = 550;
+    const height = 600;
+    const left = (window.screen.width / 2) - (width / 2);
+    const top = (window.screen.height / 2) - (height / 2);
+    const newWindow = window.open("", "Health Tip", `width=${width},height=${height},left=${left},top=${top}`);
+    newWindow.document.head.innerHTML = `<title>Health Tip</title>`;
+    newWindow.document.body.innerHTML = `
+      <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+      <style>
+        body {
+          position: relative;
+        }
+        #close-button {
+          position: absolute;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      </style>
+      <p style="font-weight: bold; font-size: 3rem; text-align: center; color: blue; margin-bottom: 1.5rem; font-family: 'Poppins', sans-serif;">Health Tips</p>
+      <p style="font-size: 1.125rem; margin: 0.25rem; font-family: 'Poppins', sans-serif;">${tips}</p>
+      <button id="close-button" style="font-size: 1.5rem;">Close</button>`;
+    newWindow.document.getElementById("close-button").addEventListener("click", () => {
+      newWindow.close();
+    });
   };
-  const handleCloseFrame = () => {
-    setIsFrameOpen(false);
+
+
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
   };
 
   return (
-    <div className="container mx-auto ">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {articles.map((article) => (
-          <div key={article.id} className="bg-white rounded-lg overflow-hidden resources-page shadow-md border border-style-solid border-color-rgb-200-185-241 border-width-5p">
-            <img src={article.image} alt={article.title} className="w-full h-48 object-cover cursor-pointer" onClick={() => handleOpenFrame(article.tips)} />
+    <div className="container mx-auto pb-5">
+      <p className="text-center text-3xl text-black pt-8 pb-5 dashboard-font-bold">
+        Healthy Habits: Tips for a Better You
+      </p>
+      <p className="text-center text-1xl text-black pt-5 pb-5 dashboard-font-bold">
+        This page is dedicated to providing you with the latest tips and tricks to help you manage your health and well-being. From nutrition and exercise to stress management and sleep, we’ve got you covered. Explore our resources and start your journey towards a healthier, happier you!
+      </p>
+      <Carousel
+        responsive={responsive}
+        itemKey={"id"}
+        infinite={true}
+        autoPlay={true}
+        autoPlayInterval={3000}
+        swipe={true}
+        showDots={true}
+        showArrows={true}
+      >
+        {articles.map((item) => (
+          <div key={item.id} className="bg-white rounded-lg overflow-hidden resources-page shadow-md border border-style-solid border-color-rgb-200-185-241 border-width-5p mx-1" style={{ height: '93%' }} onClick={() => handleOpenFrame(item.tips)} >
+            <img src={item.image} alt={item.title} className="w-full h-48 object-cover cursor-pointer" />
             <div className="p-4">
-              <h2 className="font-bold text-lg mb-2 cursor-pointer" onClick={() => handleOpenFrame(article.tips)}>{article.title}</h2>
-              <p className="text-gray-700 text-base cursor-pointer" onClick={() => handleOpenFrame(article.tips)}>{article.description}</p>
+              <h2 className="font-bold text-lg mb-2 cursor-pointer">{item.title}</h2>
+              <p className="text-gray-700 text-base cursor-pointer">{item.description}</p>
             </div>
-            <Modal tips={tips} handleCloseFrame={handleCloseFrame} isFrameOpen={isFrameOpen} />
           </div>
         ))}
-      </div>
+      </Carousel>
     </div>
   );
 };
-
-const Modal = ({ tips, handleCloseFrame, isFrameOpen }) => {
-  return (
-    <>
-      {isFrameOpen && (
-        <div className="fixed top-0 left-0 w-screen h-screen z-10 bg-black bg-opacity-10 flex justify-center items-center">
-          <div className="w-96 h-110 bg-white border border-green flex flex-col rounded-lg shadow-xl scale-in">
-            <div className="flex-grow p-4">
-              <h2 className="font-bold text-3xl text-center text-blue-500 mb-2">
-                Health Tips
-              </h2>
-              <p className="text-lg mb-1">{tips}</p>
-            </div>
-            <div className="flex justify-center pb-4">
-              <button className="d-block mx-auto my-3 bg-purple-500 rounded-full text-white py-2 px-4 hover:bg-purple-600 shadow-sm" onClick={handleCloseFrame}>Close</button>
-            </div>
-          </div>
-        </div>
-      )}
-      <style>
-        {`
-          .scale-in {
-            animation: scale-in 0.3s ease-in-out;
-          }
-          @keyframes scale-in {
-            0% {
-              transform: scale(0);
-            }
-            100% {
-              transform: scale(1);
-            }
-          }
-        `}
-      </style>
-    </>
-  );
-};
-
 
 export default Resources;
