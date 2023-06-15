@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import useToken from '@galvanize-inc/jwtdown-for-react';
 import StyledButton from '../ReactComponents/button';
+import Lottie from "lottie-react";
+import bottle from "./lottieanimation/bottle.json"
 
 function WaterForm() {
     const navigation=useNavigate();
@@ -36,7 +38,10 @@ function WaterForm() {
     }
 
     return (
-                <div style={{ backgroundColor: '#e7f9f4'}} className="min-h-screen">
+                <div style={{ backgroundColor: '#e7f9f4'}} className="min-h-screen flex justify-center items-center">
+                    <div  style={{width: "30%"}}>
+                    <Lottie animationData={bottle}/>
+                    </div>
                     <div className="row">
 
                         <div className="offset-3 md:flex md:flex-wrap md:justify-center " >

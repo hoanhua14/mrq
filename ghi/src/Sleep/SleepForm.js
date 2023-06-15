@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import StyledButton from "../ReactComponents/button";
 import useToken from "@galvanize-inc/jwtdown-for-react";
+import Lottie from "lottie-react";
+import sloth from "./lottieanimation/sloth.json"
 
 function SleepForm() {
     const { token } = useToken();
@@ -9,6 +11,7 @@ function SleepForm() {
     const [hours, setHours] = useState('');
     const [quality, setQuality] = useState('');
     const navigate = useNavigate();
+
 
     const handleDateChange = (event) => {
         const value = event.target.value;
@@ -40,6 +43,7 @@ function SleepForm() {
                 'Content-Type': 'application/json',
                 Authorization : `Bearer ${token}`,
             },
+
         };
 
         const response = await fetch(sleepUrl, fetchConfig);
@@ -52,7 +56,11 @@ function SleepForm() {
     }
 
     return (
-        <div style={{ backgroundColor: '#e7f9f4'}} className="min-h-screen">
+        <div style={{ backgroundColor: '#e7f9f4'}} className="min-h-screen flex justify-center items-center">
+          <div style={{width: "30%"}}>
+          <Lottie animationData={sloth}/>
+          </div>
+
           <div className="row">
 
               <div className="offset-3 md:flex md:flex-wrap md:justify-center " >
