@@ -95,15 +95,27 @@ The dashboard is personalized to the user and displays progress toward the exerc
 
 ![Dashboard Page](/image/DASHBOARD.png "This is the Dashboard page.")
 
+## Exercise Log
+The exercise log is personalized to the user and logs one exercise entry for a given date.
+![Exercise Log Page](/image/EXERCISE-LOG.png "This is the Exercise Log page.")
+
 ### Exercise List
 The exercise list is personalized to the user and lists all of their exercise entries for all dates. A user is able to delete entries from this view.
 
 ![Exercise List Page](/image/EXERCISE-LIST.png "This is the Exercise List page.")
 
+## Sleep Log
+The sleep log is personalized to the user and logs one sleep entry for a given date. Logging last night's sleep allows the dashboard to reflect sleep entry data.
+![Exercise Log Page](/image/SLEEP-LOG.png "This is the Sleep Log page.")
+
 ### Sleep List
 The sleep list is personalized to the user and lists all of their sleep entries for all dates. A user is able to delete entries from this view.
 
 ![Sleep List Page](/image/SLEEP-LIST.png "This is the Sleep List page.")
+
+## Water Log
+The water log is personalized to the user and logs one water entry for a given date.
+![Exercise Log Page](/image/WATER-LOG.png "This is the Water Log page.")
 
 ### Water List
 The water list is personalized to the user and lists all of their water entries for all dates. A user is able to delete entries from this view.
